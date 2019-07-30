@@ -1,0 +1,63 @@
+<html>
+<head>
+  <Title>CompWarehouse</Title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="CompWarehouse.css">
+  <Script src="compWarehouse.js"></Script>
+</head>
+<body>
+
+<div class="topnav">
+
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Store Select</button>
+
+
+      <div id="myDropdown" class="dropdown-content">
+        <li><a href="#">Store 1</a></li>
+        <li><a href="#">Store 2</a></li>
+        <li><a href="#">Store 3</a></li>
+      </div>
+    </div>
+    <div class="topnav-right" style="float:right;">
+      <a class = "cart" href="#cart"><img src="cart_icon.png" atl="cart_icon" width="30" height="20"></a>
+      <input type="text" placeholder="Search...">
+    </div>
+
+</div>
+
+<div class="navbar">
+    <a class="active" href="#CompWarehouse"><img src="Compwarehouse_logo.png" alt="CompWarehouse" width = "150" height = "40"></a>
+
+    <div class="navbar-right" style="float:right;">
+      <a href="#CompWarehouse">Home</a>
+      <a href="#Products">Products</a>
+      <a href="#MyAccount">MyAccount</a>
+      <a href="#ContactUs">Contact Us</a>
+    </div>
+
+</div>
+
+<div class = "Slideshow" style ="max-width=50px">
+  <img class = "mySlides" src = "red desktop.jpg" style="width=10%">
+  <img class = "mySlides" src = "green desktop.jpg" style="width=10%">
+  <img class = "mySlides" src = "blue desktop.jpg" style="width=10%">
+</div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+</body>
+</html>

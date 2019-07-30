@@ -1,0 +1,100 @@
+.topnav {
+  background-color: #b3b3b3;
+  overflow: hidden;
+  position: relative;
+
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 8px;
+  font-size: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #b3b3cc;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+.topnav-right{
+    float: right;
+}
+
+.navbar {
+  padding-top: 12px 16px
+  overflow: hidden;
+  background-color: inherit;
+}
+
+.navbar a {
+  flaot: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 14px
+}
+
+.navbar-right {
+  float: right;
+}
+
+.navbar a:hover{
+  background-color: #ccddff;
+}
+
+mySlides {
+  display: none;
+  overflow: hidden;
+}
+
+.slideshow {
+  margin: 0 auto;
+  position: relative;
+  max-width: 100%;
+  width: 800px;
+  height: 500px;
+  max-height: 100%;
+}
+
+.slideshow img {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color:  #737373;
+}
