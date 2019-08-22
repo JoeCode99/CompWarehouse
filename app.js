@@ -13,10 +13,10 @@
 
       // TEST
       // Get elements
-      const preObject = document.getElementById('object');
+      const preObject = document.getElementById('product');
 
       // Create references
-      const dbRefObject = firebase.database().ref().child('object');
+      const dbRefObject = firebase.database().ref().child('product');
 
       // Sync object changes
       dbRefObject.on('value', snap => {
