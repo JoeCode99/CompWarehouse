@@ -7,5 +7,8 @@
 * Visual Studio Code (https://code.visualstudio.com/)
 * Git (https://git-scm.com/downloads)
 * Firebase (http://firebase.google.com/)
-* Any Web Browser
 
+
+### Testing Tools
+* Any Web Browser
+* Fake Accounts - Guerrilla Mail (https://www.guerrillamail.com/)
