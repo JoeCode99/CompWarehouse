@@ -21,6 +21,5 @@
       // Sync object changes
       dbRefObject.on('value', snap => {
         preObject.innerText = JSON.stringify(snap.val(), null, 3);
-        
       });
     
