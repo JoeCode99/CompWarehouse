@@ -45,3 +45,13 @@ function carousel() {
   x[myIndex-1].style.display = "block";
   setTimeout(carousel, 2000); // Change image every 2 seconds
 }
+
+//Firebase authentication below
+function registration() {
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var email = document.getElementById("emailAddress").value;
+    var password = document.getElementById("password").value;
+    var address = document.getElementById("billingAddress").value;
+    
+}
