@@ -55,3 +55,9 @@ function registration() {
     var address = document.getElementById("billingAddress").value;
     
 }
+
+//Login form
+function login() {
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("pass").value;
+}
