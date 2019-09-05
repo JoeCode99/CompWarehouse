@@ -1,0 +1,80 @@
+<html>
+<head>
+    <Title>CompWarehouse</Title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="CSS/CompWarehouse.css">
+
+    <Script src="JS/CompWarehouse.js"></Script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
+</head>
+<body>
+
+<div class="topnav">
+
+  <div class="Dropwdown">
+    <p style="display: inline; color: darkgray;">Store Select: </p>
+  <select name="Store Select">
+
+    <option value="Store 1" href="CompWarehouse.html">Store 1</option>
+    <option value="Store 2">Store 2</option>
+    <option value="Store 3">Store 3</option>
+  </select>
+</div>
+
+<div class="topnav-right" style="float:right;">
+  <a  href="LogIn.html"><button class="Account">Log In/Sign up</button></a>
+  <a  href="Cart.html"><button class = "cart"><img src="../img/cart_icon.png" atl="cart_icon" width="30" height="20"></button></a>
+  <input type="text" placeholder="Search...">
+</div>
+
+</div>
+
+<div class="navbar">
+    <a class="active" href="CompWarehouse.html"><img src="../img/Compwarehouse_logo.png" alt="CompWarehouse" width = "165" height = "50"></a>
+
+    <div class="navbar-right" style="float:right;">
+      <a href="CompWarehouse.html" style="color: gray;">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn"><a href="Products.html" style="color: gray;">Products</a></button>
+        <div class="dropdown-content">
+          <a href="Gaming.html">Gaming</a>
+          <a href="Basic.html">Home & Office</a>
+        </div>
+      </div>
+      <a href="MyAccount.html" style="color: gray;">MyAccount</a>
+      <a href="ContactUs.html" style="color: gray;">Contact Us</a>
+    </div>
+
+</div>
+
+<div class = "Slideshow" style ="max-width: 800px">
+  <img class = "mySlides" src = "../img/red desktop.jpg" style="width: 100%">
+  <img class = "mySlides" src = "../img/green desktop.jpg" style="width: 100%">
+  <img class = "mySlides" src = "../img/blue desktop.jpg" style="width: 100%">
+</div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+<div class = "Featured">
+  <h1>Featured</h1>
+</div>
+
+</body>
+</html>
