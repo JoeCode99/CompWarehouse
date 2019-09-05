@@ -4,8 +4,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="CSS/CompWarehouse.css">
+  
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-database.js"></script>
   <script src="JS/CompWarehouse.js"></script>
-  </head>
+  <script src="JS/Authentication.js"></script>
+</head>
+
   <body>
 
   <div class="topnav">
@@ -43,21 +49,24 @@
       <a href="MyAccount.html" style="color: gray;">MyAccount</a>
       <a href="ContactUs.html" style="color: gray;">Contact Us</a>
     </div>
-
   </div>
-  <form><br>
-    <input type="text" id="firstName"/><br></br>
-    <input type="text" id="lastName"/><br></br>
-    <input type="text" id="emailAddress"/><br></br>
-    <input type="password" id="password"/><br></br>
-    <input type="text" id="billingAddress"/><br></br>
-    <input type="submit" value="Register" onclick="registration()"/><br>
-  </form>
 
-  <form><br>
-    <input type="text" id="email"/><br></br>
-    <input type="password" id="pass"/><br></br>
-    <input type="submit" value="Login" onClick="login()"/><br>
-  </form>
+  <div>
+    <form><br>
+      <input type="text" id="firstName"/><br></br>
+      <input type="text" id="lastName"/><br></br>
+      <input type="text" id="emailAddress"/><br></br>
+      <input type="password" id="password"/><br></br>
+      <input type="text" id="billingAddress"/><br></br>
+      <input type="submit" value="Register" id="registerBtn"/><br>
+    </form>
+
+    <form><br>
+      <input type="text" id="email"/><br></br>
+      <input type="password" id="pass"/><br></br>
+      <input type="submit" value="Login" id="loginBtn"/><br>
+    </form>
+  </div>
+
 </body>
 </html>
