@@ -12,12 +12,9 @@
     // const emailTxt2 = document.getElementById("emailAddress");
     // const passwordTxt2 = document.getElementById("password");
     // const addressTxt = document.getElementById("billingAddress");
-<<<<<<< HEAD
 
-=======
     
     // Login Function
->>>>>>> registration
     loginBtn.addEventListener('click', e => {
         const email = emailTxt.value;
         const pass = passwordTxt.value;
@@ -60,7 +57,7 @@
         const pass = passwordTxt.value;
         const auth = firebase.auth();
         if (pass.length < 6) {
-            window.alert("Your password must have 6 or more characters")
+            window.alert("Password must have 6 or more characters")
         }
         else if (!(/\S+@\S+\.\S+/.test(email))) {
             window.alert("Invalid email address")
