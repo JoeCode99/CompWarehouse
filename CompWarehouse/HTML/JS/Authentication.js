@@ -13,7 +13,7 @@
     // const passwordTxt2 = document.getElementById("password");
     // const addressTxt = document.getElementById("billingAddress");
     
-
+    // Login Function
     loginBtn.addEventListener('click', e => {
         const email = emailTxt.value;
         const pass = passwordTxt.value;
@@ -23,6 +23,7 @@
         promise.catch(e => console.log(e.message));
     });
 
+    // Sign Up Function
     registerBtn.addEventListener('click', e => {
         const email = emailTxt.value;
         const pass = passwordTxt.value;
@@ -32,11 +33,12 @@
         promise.catch(e => console.log(e.message));
     });
 
+    // Logout Function
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
     });
 
-    // Add a realtime listener
+    // Realtime listener for Login State
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             console.log(firebaseUser);
