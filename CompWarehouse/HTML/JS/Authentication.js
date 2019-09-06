@@ -12,7 +12,12 @@
     // const emailTxt2 = document.getElementById("emailAddress");
     // const passwordTxt2 = document.getElementById("password");
     // const addressTxt = document.getElementById("billingAddress");
+<<<<<<< HEAD
 
+=======
+    
+    // Login Function
+>>>>>>> registration
     loginBtn.addEventListener('click', e => {
         const email = emailTxt.value;
         const pass = passwordTxt.value;
@@ -49,6 +54,7 @@
 
     });
 
+    // Sign Up Function
     registerBtn.addEventListener('click', e => {
         const email = emailTxt.value;
         const pass = passwordTxt.value;
@@ -65,12 +71,13 @@
         }
     });
 
+    // Logout Function
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
         window.location.replace("CompWarehouse.html")
     });
 
-    // Add a realtime listener
+    // Realtime listener for Login State
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             console.log(firebaseUser);
