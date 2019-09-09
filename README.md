@@ -12,3 +12,7 @@
 * Any Web Browser
 * Fake Accounts - Guerrilla Mail (https://www.guerrillamail.com/)
 
+
+### Testing Tools
+* Any Web Browser
+* Fake Accounts - Guerrilla Mail (https://www.guerrillamail.com/)
