@@ -60,8 +60,8 @@
 
     // Sign Up Function
     signupBtn.addEventListener('click', e => {
-        const email = emailTxt.value;
-        const pass = passwordTxt.value;
+        var email = emailTxt.value;
+        var pass = passwordTxt.value;
         const auth = firebase.auth();
         if (pass.length < 6) {
             window.alert("Password must have 6 or more characters")
@@ -93,7 +93,21 @@
         }
     });
 
-    //Test Show/Hide
+    // Register Function
+    registerBtn.addEventListener('click', e => {
+        var firstname = firstNameTxt.value;
+        var lastname = lastNameTxt.value;
+        var address = addressTxt.value;
+        var userid = firebase.auth().currentUser.uid;
+        console.log(userid);
+        firebase.database().ref('user/' + userid).set({
+            firstname : firstname,
+            lastname : lastname,
+            address : address
+          });
+    });
+
+    // Test Show/Hide
     testBtn.addEventListener('click', e => {
         loginDiv.style.display = "none";
         signupDiv.style.display = "block";
