@@ -5,15 +5,22 @@
     const passwordTxt = document.getElementById("pass");
     const loginBtn = document.getElementById("loginBtn");
     const logoutBtn = document.getElementById("logoutBtn");
+    const signupBtn = document.getElementById("signupBtn");
+    const loginDiv = document.getElementById("loginDiv");
+
+    const firstNameTxt = document.getElementById("firstNameTxt");
+    const lastNameTxt = document.getElementById("lastNameTxt");
+    const addressTxt = document.getElementById("addressTxt");
     const registerBtn = document.getElementById("registerBtn");
+    const signupDiv = document.getElementById("signupDiv");
 
-    // const firstNameTxt = document.getElementById("firstName");
-    // const lastNameTxt = document.getElementById("lastName");
-    // const emailTxt2 = document.getElementById("emailAddress");
-    // const passwordTxt2 = document.getElementById("password");
-    // const addressTxt = document.getElementById("billingAddress");
+    // Test Buttons
+    const testBtn = document.getElementById("testBtn");
+    const test2Btn = document.getElementById("test2Btn");
 
-    
+    // Hide Sign Up Fields
+    signupDiv.style.display = "none";
+
     // Login Function
     loginBtn.addEventListener('click', e => {
         const email = emailTxt.value;
@@ -52,7 +59,7 @@
     });
 
     // Sign Up Function
-    registerBtn.addEventListener('click', e => {
+    signupBtn.addEventListener('click', e => {
         const email = emailTxt.value;
         const pass = passwordTxt.value;
         const auth = firebase.auth();
@@ -65,13 +72,16 @@
         else {
             const promise = auth.createUserWithEmailAndPassword(email, pass);
             promise.catch(e => console.log(e.message));
+            loginDiv.style.display = "none";
+            signupDiv.style.display = "block";
+
         }
     });
 
     // Logout Function
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
-        window.location.replace("CompWarehouse.html")
+        window.location.replace("CompWarehouse.html");
     });
 
     // Realtime listener for Login State
@@ -82,4 +92,16 @@
             console.log('Not logged in');
         }
     });
+
+    //Test Show/Hide
+    testBtn.addEventListener('click', e => {
+        loginDiv.style.display = "none";
+        signupDiv.style.display = "block";
+    });
+
+    test2Btn.addEventListener('click', e => {
+        loginDiv.style.display = "block";
+        signupDiv.style.display = "none";
+    });
+
 }());
