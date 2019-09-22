@@ -49,6 +49,7 @@
         }
     });
 
+    // Read and store details into text fields
     editBtn.addEventListener('click', e => {
         var userid = firebase.auth().currentUser.uid;
         var firstNameRef = firebase.database().ref('user/' + userid + '/firstname');
@@ -65,7 +66,8 @@
         addressRef.once('value', function(snapshot) {
             addressTxtf.setAttribute("value", snapshot.val()); 
         });
-
+        
+        // Hide/show sections
         detailsDiv.style.display = "none";
         editDiv.style.display = "block";
     });
@@ -75,6 +77,7 @@
         detailsDiv.style.display = "block";
     });
 
+    // Store new details in the database
     doneBtn.addEventListener('click', e => {
         var userid = firebase.auth().currentUser.uid;
         var firstname = firstNameTxtf.value.trim();
