@@ -50,6 +50,22 @@
     });
 
     editBtn.addEventListener('click', e => {
+        var userid = firebase.auth().currentUser.uid;
+        var firstNameRef = firebase.database().ref('user/' + userid + '/firstname');
+        firstNameRef.once('value', function(snapshot) {
+            firstNameTxtf.setAttribute("value", snapshot.val()); 
+        });
+
+        var lastNameRef = firebase.database().ref('user/' + userid + '/lastname');
+        lastNameRef.once('value', function(snapshot) {
+            lastNameTxtf.setAttribute("value", snapshot.val()); 
+        });
+
+        var addressRef = firebase.database().ref('user/' + userid + '/address');
+        addressRef.once('value', function(snapshot) {
+            addressTxtf.setAttribute("value", snapshot.val()); 
+        });
+
         detailsDiv.style.display = "none";
         editDiv.style.display = "block";
     });
@@ -60,7 +76,22 @@
     });
 
     doneBtn.addEventListener('click', e => {
-        
+        var userid = firebase.auth().currentUser.uid;
+        var firstname = firstNameTxtf.value.trim();
+        var lastname = lastNameTxtf.value.trim();
+        var address = addressTxtf.value.trim();
+        if (firstname.length == 0) window.alert("Please enter your first name");
+        else if (lastname.length == 0) window.alert("Please enter your last name");
+        else if (address.length == 0) window.alert("Please enter your address");
+        else {
+            firebase.database().ref('user/' + userid).set({
+                firstname : firstname,
+                lastname : lastname,
+                address : address
+            });
+            editDiv.style.display = "none";
+            detailsDiv.style.display = "block";
+        }
     });
     
 }());
