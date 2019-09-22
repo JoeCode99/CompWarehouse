@@ -14,10 +14,6 @@
     const registerBtn = document.getElementById("registerBtn");
     const signupDiv = document.getElementById("signupDiv");
 
-    // Test Buttons
-    const testBtn = document.getElementById("testBtn");
-    const test2Btn = document.getElementById("test2Btn");
-
     // Hide Sign Up Fields
     signupDiv.style.display = "none";
 
@@ -40,22 +36,6 @@
             console.log(error);
             // [END_EXCLUDE]
           });
-
-        /*const promise = auth.signInWithEmailAndPassword(email, pass);
-
-        var errorCode = error.code;
-        window.alert(error.message);
-        var errorMessage = error.message;
-        // [START_EXCLUDE]
-        if (errorCode == 'auth/wrong-password') {
-            window.alert('Email or password is incorrect');
-          } else {
-            window.alert(errorMessage);
-          }
-          console.log(error);
-          promise.catch(e => console.log(e.message));
-          document.getElementById('quickstart-sign-in').disabled = false;*/
-
     });
 
     // Sign Up Function
@@ -105,17 +85,6 @@
             lastname : lastname,
             address : address
           });
-    });
-
-    // Test Show/Hide
-    testBtn.addEventListener('click', e => {
-        loginDiv.style.display = "none";
-        signupDiv.style.display = "block";
-    });
-
-    test2Btn.addEventListener('click', e => {
-        loginDiv.style.display = "block";
-        signupDiv.style.display = "none";
     });
 
 }());
