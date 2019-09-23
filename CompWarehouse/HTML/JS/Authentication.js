@@ -109,7 +109,7 @@ $(function() {
                 address : address
             });
             tracker = 1;
-            setTimeout(function() { window.location.href = "CompWarehouse.html" }, 1500);
+            setTimeout(function() { window.location.href = "CompWarehouse.html" }, 2000);
             
         }
     });
