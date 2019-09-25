@@ -145,3 +145,39 @@ p{
   display:block;
 
 }
+
+/*this is for the overall products grid*/
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
+
+/*this is for each item in the grid*/
+.store {
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.nameTxt {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.priceTxt {
+  color: white;
+}
+
+.stockTxt {
+  color: white;
+}
+
+.catTxt {
+  color: white;
+}
+
+

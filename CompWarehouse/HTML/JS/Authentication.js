@@ -1,4 +1,4 @@
-(function() {
+$(function() {
 
     // Get Elements
     const emailTxt = document.getElementById("email");
@@ -13,9 +13,12 @@
     const addressTxt = document.getElementById("addressTxt");
     const registerBtn = document.getElementById("registerBtn");
     const signupDiv = document.getElementById("signupDiv");
+    const regoDiv = document.getElementById("regoDiv");
 
     // Hide Sign Up Fields
     signupDiv.style.display = "none";
+    regoDiv.style.display = "none";
+    loginDiv.style.display = "none";
 
     // Login Function
     loginBtn.addEventListener('click', e => {
@@ -36,6 +39,8 @@
             console.log(error);
             // [END_EXCLUDE]
           });
+        
+        setTimeout(function() { window.location.href = "CompWarehouse.html" }, 1500);
     });
 
     // Sign Up Function
@@ -51,40 +56,62 @@
         }
         else {
             const promise = auth.createUserWithEmailAndPassword(email, pass);
-            promise.catch(e => console.log(e.message));
-            loginDiv.style.display = "none";
-            signupDiv.style.display = "block";
+            var x = 0;
+            promise.catch(e => {
+                console.log(e.message)
+                if (e.message = "This email address is already in use by another account") {
+                    window.alert("This email address is already in use by another account");
+                    ++x;
+                }
+            });
 
+            if (x == 0) {
+                loginDiv.style.display = "none";
+                signupDiv.style.display = "block";
+            }
+            
         }
     });
 
     // Logout Function
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
-        window.location.replace("CompWarehouse.html");
     });
 
     // Realtime listener for Login State
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             console.log(firebaseUser);
+            regoDiv.style.display = "block";
+            loginDiv.style.display = "none";
+            
         } else {
             console.log('Not logged in');
+            regoDiv.style.display = "none";
+            loginDiv.style.display = "block";
         }
     });
 
     // Register Function
     registerBtn.addEventListener('click', e => {
-        var firstname = firstNameTxt.value;
-        var lastname = lastNameTxt.value;
-        var address = addressTxt.value;
+        var firstname = firstNameTxt.value.trim();
+        var lastname = lastNameTxt.value.trim();
+        var address = addressTxt.value.trim();
         var userid = firebase.auth().currentUser.uid;
         console.log(userid);
-        firebase.database().ref('user/' + userid).set({
-            firstname : firstname,
-            lastname : lastname,
-            address : address
-          });
+        if (firstname.length == 0) window.alert("Please enter your first name");
+        else if (lastname.length == 0) window.alert("Please enter your last name");
+        else if (address.length == 0) window.alert("Please enter your address");
+        else {
+            firebase.database().ref('user/' + userid).set({
+                firstname : firstname,
+                lastname : lastname,
+                address : address
+            });
+            tracker = 1;
+            setTimeout(function() { window.location.href = "CompWarehouse.html" }, 2000);
+            
+        }
     });
 
 }());
