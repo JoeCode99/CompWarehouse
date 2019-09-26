@@ -4,6 +4,7 @@ $(function(){
     const categoryTxt = document.getElementById("categoryTxt");
     const descriptionTxt = document.getElementById("descriptionTxt");
     const stockTxt = document.getElementById("stockTxt");
+    const quantityDbx = document.getElementById("quantityDbx")
     const cartBtn = document.getElementById("cartBtn");
     
     // Get and set product name from storage
