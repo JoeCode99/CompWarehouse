@@ -15,10 +15,6 @@ $(function(){
         store[i] = new Array(6);
     }
 
-    var reply_click = function() {
-        window.alert("This should open " + event.srcElement.id);
-    }
-
     //populating the grid
     function makeGrid(store) {
         var list = document.getElementById("products");
@@ -60,10 +56,11 @@ $(function(){
 
                 
                 list.appendChild(item);
-                document.getElementById(String(j)).onclick = reply_click;
-                //item.addEventListener("click", e=> { 
-                //    window.alert("This should be a new window for " + item.id); 
-                //});
+                document.getElementById(String(j)).onclick = function() {
+                    var name = store[event.srcElement.id][0];
+                    localStorage.setItem("productName", name);
+                    window.location.replace("ProductView.html");
+                };
             }
         }
         return list;
