@@ -40,7 +40,7 @@ $(function() {
             // [END_EXCLUDE]
           });
         
-        setTimeout(function() { window.location.href = "CompWarehouse.html" }, 1500);
+        setTimeout(function() { window.location.href = "CompWarehouse.html" }, 2000);
     });
 
     // Sign Up Function
