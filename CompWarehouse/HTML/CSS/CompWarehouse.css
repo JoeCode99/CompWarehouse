@@ -187,4 +187,16 @@ p{
   width: 90%;
 }
 
+/* Cart */
+#cart{
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid;
+  color: white;
+}
+
+th, td, tr{
+  border: 1px solid;
+}
+
 
