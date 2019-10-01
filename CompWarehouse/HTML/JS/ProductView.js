@@ -7,6 +7,14 @@ $(function(){
     const quantityDbx = document.getElementById("quantityDbx")
     const cartBtn = document.getElementById("cartBtn");
     
+    nameTxt.style.display = "none";
+    priceTxt.style.display = "none";
+    categoryTxt.style.display = "none";
+    descriptionTxt.style.display = "none";
+    stockTxt.style.display = "none";
+    quantityDbx.style.display = "none";
+    cartBtn.style.display = "none";
+
     // Get and set product name from storage
     var productName = localStorage.getItem("productName");
     nameTxt.innerText = productName;
@@ -33,10 +41,21 @@ $(function(){
     stockRef.on('value', function(snapshot) {
         var stock = snapshot.val();
         stockTxt.innerText = "Stock Available: " + stock;
+        document.getElementById("placeholder").style.display = "none";
+        nameTxt.style.display = "block";
+        priceTxt.style.display = "block";
+        categoryTxt.style.display = "block";
+        descriptionTxt.style.display = "block";
+        stockTxt.style.display = "block";
+        quantityDbx.style.display = "block";
+        cartBtn.style.display = "block";
     });
 
     cartBtn.addEventListener('click', e => {
         // Add to Cart Function
     });
+    
+    
+    
     
 });

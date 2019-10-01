@@ -14,7 +14,7 @@ $(function(){
     for (i = 0; i < 100; i++) {
         store[i] = new Array(6);
     }
-
+    
     //populating the grid
     function makeGrid(store) {
         var list = document.getElementById("products");
@@ -75,6 +75,7 @@ $(function(){
                 };
             }
         }
+        
         return list;
     }
     
@@ -100,7 +101,9 @@ $(function(){
         }
         store.sort(sortFunction);
         //need to do this after the list has been populated.
+        document.getElementById("placeholder").style.display = "none";
         makeGrid(store);
+        
     });
 
     

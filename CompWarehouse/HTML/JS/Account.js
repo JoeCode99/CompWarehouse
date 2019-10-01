@@ -13,7 +13,7 @@
     const addressTxtf = document.getElementById("addressTxtf");
     const doneBtn = document.getElementById("doneBtn");
     const cancelBtn = document.getElementById("cancelBtn");
-
+    detailsDiv.style.display = "none";
     editDiv.style.display = "none";
 
     // Listener for user login state
@@ -43,10 +43,13 @@
                 var address = snapshot.val();
                 addressTxt.innerText = "Address: " + address;
             });
-
         } else {
             window.location.replace("Login.html");
         }
+        setTimeout(function() {
+            detailsDiv.style.display = "block";
+            document.getElementById("placeholder").style.display = "none";
+            }, 2000);
     });
 
     // Read and store details into text fields
