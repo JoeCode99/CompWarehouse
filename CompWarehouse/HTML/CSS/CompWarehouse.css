@@ -189,14 +189,23 @@ p{
 
 /* Cart */
 #cart{
-  margin-top: 30px;
-  padding: 20px;
-  border: 2px solid;
-  color: white;
+  margin-top: 20px;
+  padding: 10px;
 }
 
-th, td, tr{
-  border: 1px solid;
+th, td {
+  border-bottom: 1px solid;
+  text-align: center;
+  padding: 15px;
+}
+
+tr:hover {
+  background-color: rgb(104, 104, 104);
+}
+
+.table {
+  color: white;
+  border-collapse: collapse;
 }
 
 

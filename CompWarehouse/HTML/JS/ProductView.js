@@ -20,10 +20,12 @@ $(function(){
     // Get and set product name from storage
     var productName = localStorage.getItem("productName");
     nameTxt.innerText = productName;
+    var productPrice = 0;
 
     var priceRef = firebase.database().ref('product/' + productName + '/productPrice');
     priceRef.on('value', function(snapshot) {
         var price = snapshot.val();
+        productPrice = price;
         priceTxt.innerText = "Price: $" + price;
     });
     
@@ -58,11 +60,13 @@ $(function(){
         var item = {
             name : productName,
             quantity : productQuantity,
+            price : productPrice
         };
         var cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.push(item);
         localStorage.setItem('cart', JSON.stringify(cart));
         console.log(JSON.parse(localStorage.getItem('cart')));
+        
     });
     
     testBtn.addEventListener('click', e => {
