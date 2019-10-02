@@ -1,5 +1,5 @@
 .topnav {
-  background-color: #f4c2c2;
+  background-color: #557A95;
   overflow: hidden;
   position: relative;
 
@@ -30,7 +30,7 @@
 .navbar {
   padding-top: 12px 16px;
   overflow: hidden;
-  background-color: inherit;
+  background-color: #5d5c61;
 }
 
 .navbar a {
@@ -71,8 +71,13 @@ mySlides {
   width: 100%;
 }
 
+.Featured {
+  background-color: #7395AE;
+  float: left;
+}
+
 body {
-  background-color: #FF69B4;
+  background-color: #5d5c61;
 }
 
 h1 {
@@ -81,6 +86,10 @@ h1 {
 }
 p{
   color: gray;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Dropdown container - needed to position the dropdown content */
@@ -178,4 +187,8 @@ p{
 
 .catTxt {
   color: white;
+}
+
+.Computers {
+  background-color: #7395AE;
 }
