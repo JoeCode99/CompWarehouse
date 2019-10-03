@@ -37,10 +37,17 @@
     }
 
     function checkout() {
-        var cart = JSON.parse(localStorage.getItem('cart')) || [];
-        if (cart[0] == null) {
-            alert('Cart is empty.');
-        } else {
-            window.location.href = "Checkout.html";
-        }  
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                var cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart[0] == null) {
+                    alert('Cart is empty.');
+                } else {
+                    window.location.href = "Checkout.html";
+                }              
+            } else {
+                window.location.href = "Login.html";
+            }
+        });
+          
     }
