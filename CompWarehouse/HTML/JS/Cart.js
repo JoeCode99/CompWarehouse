@@ -14,7 +14,7 @@
             cartdata += "<td>" + cart[i].quantity + "</td>";
             cartdata += "<td>$" + cart[i].price + "</td>";
             cartdata += "<td>$" +  cart[i].quantity * cart[i].price + "</td>";
-            cartdata += "<td style='border-bottom: 0px'><button onclick='delElement(" + i + ")'>Remove</button></td></tr>";
+            cartdata += "<td style='border-bottom: 0px'><input type='image' onclick='delElement(" + i + ")' src='../img/delete.png' width='25' height='25'></td></tr>";
         }
 
         cartdata += '<tr><td></td><td></td><td></td><td>$' + total + '</td></tr></table>'
@@ -37,7 +37,7 @@
     }
 
     function checkout() {
-        
+        window.location.href = "Checkout.html";
     }
     
     // Currently unavailable
