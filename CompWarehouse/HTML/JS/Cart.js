@@ -37,12 +37,10 @@
     }
 
     function checkout() {
-        window.location.href = "Checkout.html";
-    }
-    
-    // Currently unavailable
-    function viewElement(a) {
-        var name = cart[a].name;
-        localStorage.setItem("productName", name);
-        window.location.href = "ProductView.html";
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (cart[0] == null) {
+            alert('Cart is empty.');
+        } else {
+            window.location.href = "Checkout.html";
+        }  
     }
