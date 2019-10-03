@@ -76,6 +76,15 @@ mySlides {
   float: left;
 }
 
+.ProductDescription {
+  background-color: #7395AE;
+  border-width: 500px 500px;
+}
+
+.Computers {
+  background-color: #7395AE;
+}
+
 body {
   background-color: #5d5c61;
 }
