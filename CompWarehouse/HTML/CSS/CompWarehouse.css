@@ -247,11 +247,18 @@ tr:hover {
   margin: 5px;
 }
 
+.button2:hover {
+  background-color: white;
+  color: #008CBA;
+}
+
 .button2 span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
+  
+  
 }
 
 .button2 span:after {
@@ -261,10 +268,13 @@ tr:hover {
   top: 0;
   right: -20px;
   transition: 0.5s;
+  color: #008CBA;
+  
 }
 
 .button2:hover span {
   padding-right: 25px;
+  color: #008CBA;
 }
 
 .button2:hover span:after {
