@@ -12,12 +12,12 @@
             total += cart[i].quantity * cart[i].price;
             cartdata += "<tr><td>" + cart[i].name + "</td>";
             cartdata += "<td>" + cart[i].quantity + "</td>";
-            cartdata += "<td>$" + cart[i].price + "</td>";
-            cartdata += "<td>$" +  cart[i].quantity * cart[i].price + "</td>";
+            cartdata += "<td>$" + cart[i].price + ".00</td>";
+            cartdata += "<td>$" +  cart[i].quantity * cart[i].price + ".00</td>";
             cartdata += "<td style='border-bottom: 0px'><input type='image' onclick='delElement(" + i + ")' src='../img/delete.png' width='25' height='25'></td></tr>";
         }
 
-        cartdata += '<tr><td></td><td></td><td></td><td>$' + total + '</td></tr></table>'
+        cartdata += '<tr><td></td><td></td><td></td><td>$' + total + '.00</td></tr></table>'
 
         document.getElementById('cart').innerHTML = cartdata;
 

@@ -54,7 +54,54 @@
 
   <h1>Checkout</h1>
 
-  
+  <div id='items'></div> <br>
+
+  <div id='contactDiv'>
+    <h2>Contact Information</h2>
+    <input type="text" class='textfield' id="emailTxt" placeholder="Email" style='margin-left: 10px'/><br></br>
+    <h2>How do you want to get it?</h2>
+    <button class='button3s' id='deliveryBtn' onclick='deliveryBtn()' style='margin-left: 10px'>Delivery</button>
+    <button class='button3' id='collectBtn' onclick='collectBtn()'>Click & Collect</button><br><br><br><br>
+
+    <div id='deliveryDiv' style='margin-left: 10px'>
+        <input type="text" class='textfield' id="firstNameTxt" placeholder="First Name" style='width: 144px'/> &nbsp;
+        <input type="text" class='textfield' id="lastNameTxt" placeholder="Last Name" style='width: 144px' /><br></br>
+        <input type="text" class='textfield' id="phoneTxt" placeholder="Phone"/><br></br>
+        <input type="text" class='textfield' id="addressTxt" placeholder="Address"/><br></br>
+        <input type="text" class='textfield' id="companyTxt" placeholder="Company (optional)"/><br></br>
+    </div>
+
+    <div id='collectDiv' style='display: none; margin-left: 10px' style='margin-left: 10px'>
+        <select id="storeDbx" class="dropmenu">
+            <option value="0">Select a Store...</option>
+            <option value="1">Store 1</option>
+            <option value="2">Store 2</option>
+            <option value="3">Store 3</option>
+        </select> <br> <br>
+        <input type="text" class='textfield' id="firstNameTxt2" placeholder="First Name" style='width: 144px'/> &nbsp;
+        <input type="text" class='textfield' id="lastNameTxt2" placeholder="Last Name" style='width: 144px' /><br></br>
+        <input type="text" class='textfield' id="phoneTxt2" placeholder="Phone"/><br></br>
+    </div>
+
+    <button class = 'button' onclick='editCart()'>Edit Cart</button>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <button class = 'button2' onclick='viewPayment()'><span>Next</span></button>
+</div>
+
+<div id='paymentDiv' style='display: none; margin-left: 10px'>
+    <h2>Payment Details</h2>
+    <input type="text" class='textfield' id="cardNumberTxt" placeholder="Card number"/><br></br>
+    <input type="text" class='textfield' id="cardNameTxt" placeholder="Name on card"/><br></br>
+    <input type="text" class='textfield' id="cardDateTxt" placeholder="Expiry (MM/YY)" style='width: 144px'/> &nbsp;
+    <input type="text" class='textfield' id="cardCodeTxt" placeholder="Security code" style='width: 144px'/><br>
+    <h2>Billing Address</h2>
+    <input type="text" class='textfield' id="billingTxt" placeholder="Billing Address"/><br><br>
+    <button class = 'button' onclick='backBtn()' style='margin-left: 0px'>Back</button>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <button class = 'button2' onclick='completeOrder()' style='margin-left: 0px'><span>Order</span></button>
+
+</div>
+
   <script src="JS/Checkout.js"></script>
 
 </body>
