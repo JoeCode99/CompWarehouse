@@ -6,7 +6,7 @@ $(function(){
     const stockTxt = document.getElementById("stockTxt");
     const quantityDbx = document.getElementById("quantityDbx")
     const cartBtn = document.getElementById("cartBtn");
-    
+
     // Get and set product name from storage
     var productName = localStorage.getItem("productName");
     nameTxt.innerText = productName;
@@ -16,7 +16,7 @@ $(function(){
         var price = snapshot.val();
         priceTxt.innerText = "Price: $" + price;
     });
-    
+
     var categoryRef = firebase.database().ref('product/' + productName + '/productCategory');
     categoryRef.on('value', function(snapshot) {
         var category = snapshot.val();
@@ -38,5 +38,5 @@ $(function(){
     cartBtn.addEventListener('click', e => {
         // Add to Cart Function
     });
-    
+
 });
