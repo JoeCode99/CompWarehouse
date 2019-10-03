@@ -6,8 +6,6 @@ $(function(){
     const stockTxt = document.getElementById("stockTxt");
     const quantityDbx = document.getElementById("quantityDbx")
     const cartBtn = document.getElementById("cartBtn");
-
-    const testBtn = document.getElementById("testBtn");
     
     nameTxt.style.display = "none";
     priceTxt.style.display = "none";
@@ -65,13 +63,8 @@ $(function(){
         var cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.push(item);
         localStorage.setItem('cart', JSON.stringify(cart));
-        console.log(JSON.parse(localStorage.getItem('cart')));
+        window.location.href = "Cart.html";
         
     });
-    
-    testBtn.addEventListener('click', e => {
-        localStorage.removeItem('cart');
-    });
-    
-    
+
 });

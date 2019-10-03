@@ -29,3 +29,20 @@
         localStorage.setItem('cart', JSON.stringify(cart));
         displayCart();
     }
+
+    function clearCart() {
+        var cart = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+    }
+
+    function checkout() {
+        
+    }
+    
+    // Currently unavailable
+    function viewElement(a) {
+        var name = cart[a].name;
+        localStorage.setItem("productName", name);
+        window.location.href = "ProductView.html";
+    }
