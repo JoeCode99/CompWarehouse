@@ -40,7 +40,7 @@ $(function() {
             // [END_EXCLUDE]
           });
         
-        setTimeout(function() { window.location.href = "CompWarehouse.html" }, 1500);
+        setTimeout(function() { window.location.href = "CompWarehouse.html" }, 2000);
     });
 
     // Sign Up Function
@@ -61,6 +61,7 @@ $(function() {
                 console.log(e.message)
                 if (e.message = "This email address is already in use by another account") {
                     window.alert("This email address is already in use by another account");
+                    window.location.href = "LogIn.html";
                     ++x;
                 }
             });
