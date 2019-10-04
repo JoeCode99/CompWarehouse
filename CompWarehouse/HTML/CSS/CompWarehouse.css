@@ -117,7 +117,7 @@ h2 {
   background-color: Red;
 }
 
-#Products:hover{
+#Product:hover{
   background-color: Orange;
 }
 #Account:hover{
@@ -305,8 +305,8 @@ tr:hover {
   display: inline-block;
   position: relative;
   transition: 0.5s;
-  
-  
+
+
 }
 
 .button2 span:after {
@@ -317,7 +317,7 @@ tr:hover {
   right: -20px;
   transition: 0.5s;
   color: #008CBA;
-  
+
 }
 
 .button2:hover span {
@@ -388,4 +388,3 @@ tr:hover {
   border-radius: 4px;
   background-color: #f1f1f1;
 }
-
