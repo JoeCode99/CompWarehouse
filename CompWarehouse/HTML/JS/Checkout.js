@@ -16,6 +16,9 @@ const cardDateTxt = document.getElementById('cardDateTxt');
 const cardCodeTxt = document.getElementById('cardCodeTxt');
 const billingTxt = document.getElementById('billingTxt');
 const sellerDbx = document.getElementById('sellerDbx');
+const contactDiv = document.getElementById('contactDiv');
+const paymentDiv = document.getElementById('paymentDiv');
+const confirmationDiv = document.getElementById('confirmationDiv');
 
 var email = '';
 var firstname = '';
@@ -162,8 +165,7 @@ function completeOrder() {
     if (cardNumber.length == 0) window.alert("Please enter your card number");
     else if (cardName.length == 0) window.alert("Please enter the name on your card");
     else if (cardDate.length == 0) window.alert("Please enter your card expiry date (MM/YY)");
-    else if (cardDate.length > 5) window.alert("Please enter your card expiry date in the format (MM/YY)");
-    //else if (cardDate.contains("/")) window.alert("Please enter your card expiry date in the format (MM/YY)");
+    else if (!cardDate.length > 5) window.alert("Please enter your card expiry date in the format (MM/YY)");
     else if (cardCode.length == 0) window.alert("Please enter your card security code");
     else if (view == 0){
         firebase.database().ref('transaction/').push().set({
@@ -185,6 +187,11 @@ function completeOrder() {
                 cardcvv : cardCode
             }
         });
+        localStorage.setItem('cart', [{}]);
+        confirmationDiv.style.display = 'block';
+        paymentDiv.style.display = 'none';
+
+
     } else if (view == 1) {
         firebase.database().ref('transaction/').push().set({
             userid : userid,
@@ -204,7 +211,16 @@ function completeOrder() {
                 cardcvv : cardCode
             }
         });
+        localStorage.setItem('cart', [{}]);
+        confirmationDiv.style.display = 'block';
+        paymentDiv.style.display = 'none';
     }
+}
+
+function homeBtn() {
+    confirmationDiv.style.display = 'none';
+    contactDiv.style.display = 'block';
+    window.location.href = "CompWarehouse.html";
 }
 
 
