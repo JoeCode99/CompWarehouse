@@ -6,7 +6,8 @@ $(function(){
     const productDescriptiontxt = document.getElementById("productDescriptiontxt");
     const productStocktxt = document.getElementById("productStocktxt");
     const addProductBtn = document.getElementById("addProductBtn");
-    //const editProductBtn = document.getElementById();
+    const editProductBtn = document.getElementById("updateProductBtn");
+    const deleteProductBtn = document.getElementById("removeProductbtn");
 
     //Add product to the store
     addProductBtn.addEventListener('click', e => {
@@ -34,8 +35,27 @@ $(function(){
         }
     });
 
-    
+    //Remove product from the store
+    deleteProductBtn.addEventListener('click', e =>{
+        var product = document.getElementById("producttxt").value.trim();
+        firebase.database().ref('product/' + product).set(null);
+    });
 
+    //Edit product in the store
+    editProductBtn.addEventListener('click', e =>{
+        var uProductName = document.getElementById("uProductNametxt").value;
+        var uProductPrice = document.getElementById("uProductPricetxt").value;
+        var uProductStock = document.getElementById("uProductStocktxt").value;
+        var uProductCategory = document.getElementById("uProductCategorytxt").value;
+        var uProductDescription = document.getElementById("uProductDescriptiontxt").value;
+        firebase.database().ref('product/' + uProductName).update({
+            productName : uProductName,
+            productPrice : uProductPrice,
+            productStock : uProductStock,
+            productCategory : uProductCategory,
+            productDescription : uProductDescription
+        });
+    });
 
 
 
