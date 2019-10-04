@@ -143,7 +143,7 @@ function completeOrder() {
     else if (cardDate.contains("/")) window.alert("Please enter your card expiry date in the format (MM/YY)");
     else if (cardCode.length == 0) window.alert("Please enter your card security code");
     else {
-        
+        // TODO: Confirm Order
     }
 }
 
