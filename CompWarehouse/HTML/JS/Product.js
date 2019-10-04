@@ -7,6 +7,7 @@ $(function(){
     const productStocktxt = document.getElementById("productStocktxt");
     const addProductBtn = document.getElementById("addProductBtn");
     //const editProductBtn = document.getElementById();
+    const deleteProductBtn = document.getElementById("removeProductbtn");
 
     //Add product to the store
     addProductBtn.addEventListener('click', e => {
@@ -34,8 +35,11 @@ $(function(){
         }
     });
 
-    
-
+    //Remove product from the store
+    deleteProductBtn.addEventListener('click', e =>{
+        var product = document.getElementById("producttxt").value.trim();
+        firebase.database().ref('product/' + product).set(null);
+    });
 
 
 
