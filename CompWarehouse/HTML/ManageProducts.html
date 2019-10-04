@@ -52,34 +52,33 @@
     </div>
   </div>
 
-  <h3> Add Product </h3>
-    <div id="addProductDiv">
-        <input type="text" id="productNametxt" placeholder="Product Name"/><br></br>
-        <input type="text" id="productPricetxt" placeholder="Product Price"/><br></br>
-        <input type="text" id="productStocktxt" placeholder="Product Stock"/><br></br>
-        <input type="text" id="productCategorytxt" placeholder="Product Category"/><br></br>
-        <input type="text" id="productDescriptiontxt" placeholder="Product Description"/><br></br>
-        <input type="submit" id="addProductBtn" value="Add Product"/><br></br>
+  <div class="management">
+    <div id="addProductDiv" style='float: center'>
+        <h3> Add Product </h3>
+        <input type="text" class="textfield" id="productNametxt" placeholder="Product Name"/><br></br>
+        <input type="text" class="textfield" id="productPricetxt" placeholder="Product Price"/><br></br>
+        <input type="text" class="textfield" id="productStocktxt" placeholder="Product Stock"/><br></br>
+        <input type="text" class="textfield" id="productCategorytxt" placeholder="Product Category"/><br></br>
+        <input type="text" class="textfield" id="productDescriptiontxt" placeholder="Product Description"/><br></br>
+        <input type="submit" class="button" id="addProductBtn" value="Add Product"/><br></br>
     </div>
 
-    <h3> Remove Product </h3>
-    
-    <div id="removeProductDiv">
-        <input type="text" id="producttxt" placeholder="Product to remove"/>
-        <input type="submit" id="removeProductbtn" value="Remove Product"/><br></br>
+    <div id="removeProductDiv" style='float: center'>
+        <h3> Remove Product </h3>
+        <input type="text" class="textfield" id="producttxt" placeholder="Product to remove"/><br></br>
+        <input type="submit" class="button" id="removeProductbtn" value="Remove Product" style='width: 160px'/><br></br>
     </div>
 
-    <h3> Edit Product </h3>
-
-    <div id="updateProductDiv">
-        <input type="text" id="uProductNametxt" placeholder="Product Name"/><br></br>
-        <input type="text" id="uProductPricetxt" placeholder="New Product Price"/><br></br>
-        <input type="text" id="uProductStocktxt" placeholder="New Product Stock"/><br></br>
-        <input type="text" id="uProductCategorytxt" placeholder="New Product Category"/><br></br>
-        <input type="text" id="uProductDescriptiontxt" placeholder="New Product Description"/><br></br>
-        <input type="submit" id="updateProductBtn" value="Update Product"/><br></br>
+    <div id="updateProductDiv" style='float: center'>
+        <h3> Edit Product </h3>
+        <input type="text" class="textfield" id="uProductNametxt" placeholder="Product Name"/><br></br>
+        <input type="text" class="textfield" id="uProductPricetxt" placeholder="New Product Price"/><br></br>
+        <input type="text" class="textfield" id="uProductStocktxt" placeholder="New Product Stock"/><br></br>
+        <input type="text" class="textfield" id="uProductCategorytxt" placeholder="New Product Category"/><br></br>
+        <input type="text" class="textfield" id="uProductDescriptiontxt" placeholder="New Product Description"/><br></br>
+        <input type="submit" class="button" id="updateProductBtn" value="Update Product" style='width: 150px'/><br></br>
     </div>
-
+  </div>
 <script src="JS/Product.js"></script>
 </body>
 </html>

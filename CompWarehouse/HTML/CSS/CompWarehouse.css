@@ -370,3 +370,14 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
+.management {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0px;
+  float: center;
+  padding: 0px 0px 0px;
+  margin-left: 120px;
+}
+
+
+

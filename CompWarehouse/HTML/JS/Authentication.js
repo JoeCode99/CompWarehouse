@@ -17,8 +17,8 @@ $(function() {
 
     // Hide Sign Up Fields
     signupDiv.style.display = "none";
-    regoDiv.style.display = "none";
-    loginDiv.style.display = "none";
+    // regoDiv.style.display = "none";
+   // loginDiv.style.display = "none";
 
     // Login Function
     loginBtn.addEventListener('click', e => {
@@ -83,13 +83,16 @@ $(function() {
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             console.log(firebaseUser);
-            regoDiv.style.display = "block";
-            loginDiv.style.display = "none";
-            
+            //regoDiv.style.display = "block";
+            loginBtn.style.display = "none";
+            logoutBtn.style.display = "block";
+            signupBtn.style.display = "none";
         } else {
             console.log('Not logged in');
-            regoDiv.style.display = "none";
-            loginDiv.style.display = "block";
+            //regoDiv.style.display = "none";
+            loginBtn.style.display = "block";
+            logoutBtn.style.display = "none";
+            signupBtn.style.display = "block";
         }
     });
 
