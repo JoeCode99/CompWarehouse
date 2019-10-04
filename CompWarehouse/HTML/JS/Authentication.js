@@ -61,6 +61,7 @@ $(function() {
                 console.log(e.message)
                 if (e.message = "This email address is already in use by another account") {
                     window.alert("This email address is already in use by another account");
+                    window.location.href = "LogIn.html";
                     ++x;
                 }
             });
