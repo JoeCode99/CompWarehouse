@@ -14,7 +14,7 @@ $(function(){
     for (i = 0; i < 100; i++) {
         store[i] = new Array(6);
     }
-
+    
     //populating the grid
     function makeGrid(store) {
         var list = document.getElementById("products");
@@ -33,6 +33,12 @@ $(function(){
                 stockTxt.setAttribute("class", "stockTxt");
                 var catTxt = document.createElement("p");
                 catTxt.setAttribute("class", "catTxt");
+                //image creation
+                var image = document.createElement("img");
+                image.setAttribute("class", "productImage");
+                var path = "../img/" + store[j][0] + ".png";
+                image.src = path;
+                item.appendChild(image);
 
                 var name = document.createTextNode(store[j][0]);
                 nameTxt.appendChild(name);
@@ -57,12 +63,19 @@ $(function(){
                 
                 list.appendChild(item);
                 document.getElementById(String(j)).onclick = function() {
-                    var name = store[event.srcElement.id][0];
-                    localStorage.setItem("productName", name);
-                    window.location.replace("ProductView.html");
+                    if (event.srcElement.id.length != 0) {
+                        var name = store[event.srcElement.id][0];
+                        localStorage.setItem("productName", name);
+                        window.location.href = "ProductView.html";
+                    } else {
+                        var name = store[event.srcElement.parentNode.id][0];
+                        localStorage.setItem("productName", name);
+                        window.location.href = "ProductView.html"; //this allows you to go back, replace doesn't
+                    }
                 };
             }
         }
+        
         return list;
     }
     
@@ -88,7 +101,9 @@ $(function(){
         }
         store.sort(sortFunction);
         //need to do this after the list has been populated.
+        document.getElementById("placeholder").style.display = "none";
         makeGrid(store);
+        
     });
 
     

@@ -28,6 +28,10 @@ $(function(){
                 productStock : productStock,
                 productStore : userid
             });
+            setTimeout(function () { 
+                window.location.href = "ManageProducts.html";
+                window.alert("Product successfully added to the store");
+            }, 2000);
         }
     });
 
