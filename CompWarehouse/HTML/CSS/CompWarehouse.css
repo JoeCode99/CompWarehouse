@@ -46,6 +46,7 @@
 .navbar-right {
   float: right;
   color: gray;
+  font-family: sans-serif;
 }
 
 /*.navbar a:hover{
