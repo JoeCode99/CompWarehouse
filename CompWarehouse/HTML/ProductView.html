@@ -55,27 +55,32 @@
         </div>
     </div>
 
-    <img id ="ProductPic">
-
-    <h1 id="nameTxt"></h1>
-    <p id="priceTxt">Price: </p>
-    <p id="categoryTxt">Category: </p>
-    <p id="descriptionTxt">Description: </p>
-    <p id="stockTxt">Stock Available: </p>
-    <p id="placeholder">Fetching the latest product information...</p>
-    <select id="quantityDbx">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-    </select> <br> <br>
-
-    <input type="submit" value="Add to Cart" id="cartBtn" /> <br> <br>
+    <div class='management' style='float: left; margin-left: 50px'>
+        <div>
+            <h1 id="nameTxt"></h1>
+            <p id="priceTxt">Price: </p>
+            <p id="categoryTxt">Category: </p>
+            <p id="descriptionTxt">Description: </p>
+            <p id="stockTxt">Stock Available: </p>
+            <p id="placeholder">Fetching the latest product information...</p>
+            <p id="quantityTxt">Quantity: </p>
+            <select id="quantityDbx" class='dropmenu' style='width: 125px'>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select> <br>
+            <input type="submit" class="button" value="Add to Cart" id="cartBtn" style='margin: 0px' />
+        </div>
+        <img id='image' src='' style='margin-left: 60px; margin-top: 60px'>
+    </div>
+    
+    
 
     <script src="JS/ProductView.js"></script>
 

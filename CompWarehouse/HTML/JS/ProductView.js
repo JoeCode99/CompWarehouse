@@ -1,9 +1,11 @@
 $(function(){
     const nameTxt = document.getElementById("nameTxt");
+    const image = document.getElementById("image");
     const priceTxt = document.getElementById("priceTxt");
     const categoryTxt = document.getElementById("categoryTxt");
     const descriptionTxt = document.getElementById("descriptionTxt");
     const stockTxt = document.getElementById("stockTxt");
+    const quantityTxt = document.getElementById("quantityTxt");
     const quantityDbx = document.getElementById("quantityDbx")
     const cartBtn = document.getElementById("cartBtn");
     
@@ -13,6 +15,7 @@ $(function(){
     descriptionTxt.style.display = "none";
     stockTxt.style.display = "none";
     quantityDbx.style.display = "none";
+    quantityTxt.style.display = "none";
     cartBtn.style.display = "none";
 
     // Get and set product name from storage
@@ -42,6 +45,7 @@ $(function(){
     var stockRef = firebase.database().ref('product/' + productName + '/productStock');
     stockRef.on('value', function(snapshot) {
         var stock = snapshot.val();
+        image.src = "../img/" + productName + ".png";
         stockTxt.innerText = "Stock Available: " + stock;
         document.getElementById("placeholder").style.display = "none";
         nameTxt.style.display = "block";
@@ -51,6 +55,7 @@ $(function(){
         stockTxt.style.display = "block";
         quantityDbx.style.display = "block";
         cartBtn.style.display = "block";
+        quantityTxt.style.display = "block";
     });
 
     cartBtn.addEventListener('click', e => {
