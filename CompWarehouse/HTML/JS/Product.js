@@ -38,8 +38,16 @@ $(function(){
     //Remove product from the store
     deleteProductBtn.addEventListener('click', e =>{
         var product = document.getElementById("producttxt").value.trim();
-        firebase.database().ref('product/' + product).set(null);
+        if (product.length == 0) window.alert("Please enter a valid product name");
+        else {
+            firebase.database().ref('product/' + product).set(null);
+            setTimeout(function () { 
+                window.location.href = "ManageProducts.html";
+                window.alert("Product successfully removed from the store");
+            }, 2000);
+        }
     });
+    
 
     //Edit product in the store
     editProductBtn.addEventListener('click', e =>{
@@ -48,13 +56,21 @@ $(function(){
         var uProductStock = document.getElementById("uProductStocktxt").value;
         var uProductCategory = document.getElementById("uProductCategorytxt").value;
         var uProductDescription = document.getElementById("uProductDescriptiontxt").value;
-        firebase.database().ref('product/' + uProductName).update({
-            productName : uProductName,
-            productPrice : uProductPrice,
-            productStock : uProductStock,
-            productCategory : uProductCategory,
-            productDescription : uProductDescription
-        });
+        if (uProductName.length == 0 || uProductPrice.length == 0 || uProductStock.length == 0 || uProductCategory.length == 0 || uProductDescription.length == 0) 
+            window.alert("Please enter updated product details within all provided fields");
+        else {
+            firebase.database().ref('product/' + uProductName).update({
+                productName : uProductName,
+                productPrice : uProductPrice,
+                productStock : uProductStock,
+                productCategory : uProductCategory,
+                productDescription : uProductDescription
+            });
+            setTimeout(function () { 
+                window.location.href = "ManageProducts.html";
+                window.alert("Product successfully updated");
+            }, 2000);
+        }
     });
 
 
