@@ -8,7 +8,33 @@ $(function(){
     const addProductBtn = document.getElementById("addProductBtn");
     const editProductBtn = document.getElementById("updateProductBtn");
     const deleteProductBtn = document.getElementById("removeProductbtn");
+    var uploader = document.getElementById("uploader");
+    var fileButton = document.getElementById("fileButton");
+    var success = 0;
+    fileButton.addEventListener("change", function(e) {
+        //Get File
+        var file = e.target.files[0];
+        //Create Storage Ref
+        var storageRef = firebase.storage().ref("images/" + file.name);
+        //Upload File
+        var task = storageRef.put(file);
+        //Update Progress Bar
+        task.on("state_changed",
+            function progress(snapshot) {
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+            },
 
+            function error(err) {
+                window.alert("An error occurred");
+            },
+
+            function complete() {
+                window.alert("Image successfully uploaded");
+                success = 1;
+            }
+        );
+    });
     //Add product to the store
     addProductBtn.addEventListener('click', e => {
         var productName = productNametxt.value.trim();
@@ -19,6 +45,8 @@ $(function(){
         var userid = firebase.auth().currentUser.uid;
         if (productName.length == 0 || productPrice.length == 0 || productCategory.length == 0 || productDescription.length == 0 || productStock.length == 0) {
             window.alert("Please enter information within all provided fields");
+        } else if (success == 0) {
+            window.alert("Please provide an image for the product");
         } else {
             firebase.database().ref('product/' + productName).set({
                 productName : productName,
