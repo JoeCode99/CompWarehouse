@@ -379,5 +379,9 @@ tr:hover {
   margin-left: 120px;
 }
 
-
+.products2 {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
 
