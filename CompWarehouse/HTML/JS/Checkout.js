@@ -15,7 +15,6 @@ const cardNameTxt = document.getElementById('cardNameTxt');
 const cardDateTxt = document.getElementById('cardDateTxt');
 const cardCodeTxt = document.getElementById('cardCodeTxt');
 const billingTxt = document.getElementById('billingTxt');
-var cat = new Array(5);
 displayItems();
 
 function displayItems() {
@@ -31,7 +30,6 @@ function displayItems() {
         data += "<td>" + cart[i].quantity + "</td>";
         data += "<td>$" + cart[i].price + ".00</td>";
         data += "<td>$" +  cart[i].quantity * cart[i].price + ".00</td>";
-        if (i < 5) cat[i] = cart[i].name;
     }
     data += '<tr><td></td><td></td><td></td><td>$' + total + '.00</td></tr></table>'
 
@@ -147,111 +145,3 @@ function completeOrder() {
         
     }
 }
-
-//Recommended Products
-var categoryRef = firebase.database().ref("product/" + cat[0] + "/productCategory");
-categoryRef.on("value", function(snapshot) {
-    var category = snapshot.val();
-    cat[0] = category;
-    setTimeout(buildStore(), 2000);
-});
-
-//creating the double array
-var i = 0;
-var store = new Array(50);
-for (i = 0; i < 50; i++) {
-    store[i] = new Array(6);
-}
-
-//populating the grid
-function makeGrid(store) {
-    var list = document.getElementById("products2");
-    for (var j = 0; j < store.length; j++) {
-        if (store[j][0].length != 0) {
-            var item = document.createElement("div");
-            identifier = "grid" + j.toString(10);
-            item.setAttribute("class", "store");
-            item.setAttribute("id", String(j));
-
-            var nameTxt = document.createElement("p");
-            nameTxt.setAttribute("class", "nameTxt");
-            var priceTxt = document.createElement("p");
-            priceTxt.setAttribute("class", "priceTxt");
-            var stockTxt = document.createElement("p");
-            stockTxt.setAttribute("class", "stockTxt");
-            var catTxt = document.createElement("p");
-            catTxt.setAttribute("class", "catTxt");
-            //image creation
-            var image = document.createElement("img");
-            image.setAttribute("class", "productImage");
-            var path = "../img/" + store[j][0] + ".png";
-            image.src = path;
-            item.appendChild(image);
-
-            var name = document.createTextNode(store[j][0]);
-            nameTxt.appendChild(name);
-            var test = parseInt(store[j][1], 10);
-            if (Number.isInteger(test)) {
-                test = test.toFixed(0).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-            } else {
-                test = test.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-            }
-            var price = document.createTextNode("$" + test);
-            priceTxt.appendChild(price);
-            var stock = document.createTextNode(store[j][2]);
-            stockTxt.appendChild(stock);
-            var cat = document.createTextNode(store[j][3]);
-            catTxt.appendChild(cat);
-
-            item.appendChild(nameTxt);
-            item.appendChild(priceTxt);
-            item.appendChild(stockTxt);
-            item.appendChild(catTxt);
-
-            
-            list.appendChild(item);
-            document.getElementById(String(j)).onclick = function() {
-                if (event.srcElement.id.length != 0) {
-                    var name = store[event.srcElement.id][0];
-                    localStorage.setItem("productName", name);
-                    window.location.href = "ProductView.html";
-                } else {
-                    var name = store[event.srcElement.parentNode.id][0];
-                    localStorage.setItem("productName", name);
-                    window.location.href = "ProductView.html"; //this allows you to go back, replace doesn't
-                }
-            };
-        }
-    }
-    
-    return list;
-}
-
-function isCategory(category) {
-    return cat[0] === category;
-}
-
-var productsRef = firebase.database().ref('product');
-i = 0;
-//getting data from the database
-function buildStore() {
-    productsRef.on('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            var childData = childSnapshot.val();
-            if (cat[0] === childData.productCategory) {
-                store[i][0] = childData.productName;
-                store[i][1] = childData.productPrice;
-                store[i][2] = childData.productStock;
-                store[i][3] = childData.productCategory;
-                store[i][4] = childData.productDescription;
-                store[i][5] = childData.productStore;
-                i++;
-            }
-        });
-        //need to do this after the list has been populated.
-        //document.getElementById("placeholder").style.display = "none";
-        makeGrid(store);
-    });
-}
-
-
