@@ -17,7 +17,7 @@
 
       <div class="Dropwdown">
         <p style="margin: 10px; float: left;">Store Select: </p>
-      <select name="Store Select" class='dropmenu' style='margin: 10px; float: left; height: 24px; width: 110px;'>
+      <select id='sellerDbx' name="Store Select" class='dropmenu' style='margin: 10px; float: left; height: 24px; width: 110px;'>
         <option value="Store 1">Broadway</option>
         <option value="Store 2">Chatswood</option>
         <option value="Store 3">Parramatta</option>
@@ -102,7 +102,7 @@
             <button class = 'button2' onclick='completeOrder()' style='margin-left: 0px'><span>Order</span></button>
         </div>
         
-        <div id='confirmationDiv' style='display: none; margin-left: 10px'>
+        <div id='confirmationDiv' style='display: none; margin-left: 0px'>
           <h2>Order Complete</h2>
           <p>Your payment has been approved. Thank you for your order!</p><br>
           <button class = 'button' onclick='homeBtn()' style='margin-left: 0px'>Home</button>
@@ -111,19 +111,7 @@
 
     <div id='items'></div>
 
-<div id='paymentDiv' style='display: none; margin-left: 10px'>
-    <h2>Payment Details</h2>
-    <input type="text" class='textfield' id="cardNumberTxt" placeholder="Card number"/><br></br>
-    <input type="text" class='textfield' id="cardNameTxt" placeholder="Name on card"/><br></br>
-    <input type="text" class='textfield' id="cardDateTxt" placeholder="Expiry (MM/YY)" style='width: 145px'/> &nbsp;
-    <input type="text" class='textfield' id="cardCodeTxt" placeholder="Security code" style='width: 144px'/><br>
-    <h2>Billing Address</h2>
-    <input type="text" class='textfield' id="billingTxt" placeholder="Billing Address"/><br><br>
-    <button class = 'button' onclick='backBtn()' style='margin-left: 0px'>Back</button>
-    &nbsp; &nbsp; &nbsp; &nbsp;
-    <button class = 'button2' onclick='completeOrder()' style='margin-left: 0px'><span>Order</span></button>
-
-</div>
+  </div>
   
 <script src="JS/Checkout.js"></script>
 

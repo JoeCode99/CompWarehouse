@@ -20,7 +20,7 @@ const billingTxt2 = document.getElementById('billingTxt2');
 const cardTxt = document.getElementById('cardTxt');
 const cardTxt2 = document.getElementById('cardTxt2');
 const pickupTxt = document.getElementById('pickupTxt');
-
+const companyTxt = document.getElementById('companyTxt');
 
 var items = [];
 
@@ -82,6 +82,7 @@ function viewElement(a) {
         transactionidTxt.innerHTML = "<strong>Transaction ID: </strong>" + items[a].transactionid;
         useridTxt.innerHTML = "<strong>User ID: </strong>" + items[a].userid;
         nameTxt.innerHTML = "<strong>Name: </strong>" + items[a].firstname + " " + items[a].lastname;
+        companyTxt.innerHTML = "<strong>Company: </strong>" + items[a].company;
         emailTxt.innerHTML = "<strong>Email: </strong>" + items[a].email;
         phoneTxt.innerHTML = "<strong>Phone Number: </strong>" + items[a].phone;
         storeTxt.innerHTML = "<strong>Store: </strong>" + store;

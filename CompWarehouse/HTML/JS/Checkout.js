@@ -32,6 +32,7 @@ var phone2 = '';
 var store = '';
 var cart = [];
 var total = 0;
+var sellerid = '4HbaT58rqANXjhhrKsBW1F7Zlhm1'
 
 displayItems();
 
@@ -154,9 +155,9 @@ function completeOrder() {
     var billing = billingTxt.value.trim();
     var userid = firebase.auth().currentUser.uid;
 
-    if (sellerDbx.value == 1) var sellerid = '4HbaT58rqANXjhhrKsBW1F7Zlhm1';
-    else if (sellerDbx.value == 2) var sellerid = '0u9RCtkvEsV041hA05xoypi9vX13';
-    else if (sellerDbx.value == 3) var sellerid = 'Q0llPZ7bAQPM72hL7Bpv95toxzo2';
+    if (sellerDbx.value == 1) sellerid = '4HbaT58rqANXjhhrKsBW1F7Zlhm1';
+    else if (sellerDbx.value == 2) sellerid = '0u9RCtkvEsV041hA05xoypi9vX13';
+    else if (sellerDbx.value == 3) sellerid = 'Q0llPZ7bAQPM72hL7Bpv95toxzo2';
     
     if (storeDbx.value == 1) var location = 'Broadway';
     else if (storeDbx.value == 2) var location = 'Chatswood';
@@ -228,7 +229,3 @@ function homeBtn() {
     contactDiv.style.display = 'block';
     window.location.href = "CompWarehouse.html";
 }
-
-
-
-
