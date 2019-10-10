@@ -20,5 +20,30 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 displayTransactions();
 
 function displayTransactions() {
+    var items = [];
+    var dataRef = firebase.database().ref('transaction');
+    dataRef.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            items.push(childSnapshot.val());
+        });
+        console.log(items);
+
+        var data = '<table class="table"><tr><th>ID</th><th>Name</th><th>Total Price</th><th>Items</th><th>Type</th><th>Store</th></tr>';
+
+        for (var i = 0; i < items.length; i++) {
+            data += "<tr><td>" + "</td>";
+            data += "<td>" + items[i].firstname + " " + items[i].lastname; + "</td>";
+            data += "<td>$" + items[i].totalprice + ".00</td>";
+            data += "<td>" + items[i].items.length; + "</td>";
+            data += "<td>" + items[i].collection + "</td>";
+            data += "<td>" + "</td>";
+            data += "<td style='border-bottom: 0px'><button onclick='viewElement(" + i + ")'>View</button></td>";
+        }
+        data += "</tr></table>";
+        transactions.innerHTML = data;
+    });   
+}
+
+function viewElement(id) {
     
 }
