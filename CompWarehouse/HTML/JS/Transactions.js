@@ -79,27 +79,27 @@ function viewElement(a) {
     else if (items[a].sellerid == 'Q0llPZ7bAQPM72hL7Bpv95toxzo2') var store = 'Parramatta';
 
     if (items[a].collection == 'Delivery') {
-        transactionidTxt.innerText = "Transaction ID: " + items[a].transactionid;
-        useridTxt.innerText = "User ID: " + items[a].userid;
-        nameTxt.innerText = "Name: " + items[a].firstname + " " + items[a].lastname;
-        emailTxt.innerText = "Email: " + items[a].email;
-        phoneTxt.innerText = "Phone Number: " + items[a].phone;
-        storeTxt.innerText = "Store: " + store;
-        addressTxt.innerText = "Delivery Address: " + items[a].address;
-        billingTxt.innerText = "Billing Address: " + items[a].billing;
-        cardTxt.innerText = "Credit Card Number: **** **** **** " + items[a].payment.cardnumber.slice(12, 16);
+        transactionidTxt.innerHTML = "<strong>Transaction ID: </strong>" + items[a].transactionid;
+        useridTxt.innerHTML = "<strong>User ID: </strong>" + items[a].userid;
+        nameTxt.innerHTML = "<strong>Name: </strong>" + items[a].firstname + " " + items[a].lastname;
+        emailTxt.innerHTML = "<strong>Email: </strong>" + items[a].email;
+        phoneTxt.innerHTML = "<strong>Phone Number: </strong>" + items[a].phone;
+        storeTxt.innerHTML = "<strong>Store: </strong>" + store;
+        addressTxt.innerHTML = "<strong>Delivery Address: </strong>" + items[a].address;
+        billingTxt.innerHTML = "<strong>Billing Address: </strong>" + items[a].billing;
+        cardTxt.innerHTML = "<strong>Credit Card Number: </strong>**** **** **** " + items[a].payment.cardnumber.slice(12, 16);
         view1.style.display = 'grid';
         transactions.style.display = 'none';
     } else if (items[a].collection == 'Pick-Up') {
-        transactionidTxt2.innerText = "Transaction ID: " + items[a].transactionid;
-        useridTxt2.innerText = "User ID: " + items[a].userid;
-        nameTxt2.innerText = "Name: " + items[a].firstname + " " + items[a].lastname;
-        emailTxt2.innerText = "Email: " + items[a].email;
-        phoneTxt2.innerText = "Phone Number: " + items[a].phone;
-        storeTxt2.innerText = "Store (Purchase): " + store;
-        pickupTxt.innerText = "Store (Pick-Up): " + items[a].location; 
-        billingTxt2.innerText = "Billing Address: " + items[a].billing;
-        cardTxt2.innerText = "Credit Card Number: **** **** **** " + items[a].payment.cardnumber.slice(12, 16);
+        transactionidTxt2.innerHTML = "<strong>Transaction ID: </strong>" + items[a].transactionid;
+        useridTxt2.innerHTML = "<strong>User ID: </strong>" + items[a].userid;
+        nameTxt2.innerHTML = "<strong>Name: </strong>" + items[a].firstname + " " + items[a].lastname;
+        emailTxt2.innerHTML = "<strong>Email: </strong>" + items[a].email;
+        phoneTxt2.innerHTML = "<strong>Phone Number: </strong>" + items[a].phone;
+        storeTxt2.innerHTML = "<strong>Store (Purchase): </strong>" + store;
+        pickupTxt.innerHTML = "<strong>Store (Pick-Up): </strong>" + items[a].location; 
+        billingTxt2.innerHTML = "<strong>Billing Address: </strong>" + items[a].billing;
+        cardTxt2.innerHTML = "<strong>Credit Card Number: </strong>**** **** **** " + items[a].payment.cardnumber.slice(12, 16);
         view2.style.display = 'grid';
         transactions.style.display = 'none';
     }
