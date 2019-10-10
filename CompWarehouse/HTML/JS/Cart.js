@@ -31,8 +31,7 @@
     }
 
     function clearCart() {
-        var cart = [];
-        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('cart', JSON.stringify([]));
         displayCart();
     }
 

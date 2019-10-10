@@ -168,9 +168,12 @@ function completeOrder() {
     else if (!cardDate.length > 5) window.alert("Please enter your card expiry date in the format (MM/YY)");
     else if (cardCode.length == 0) window.alert("Please enter your card security code");
     else if (view == 0){
-        firebase.database().ref('transaction/').push().set({
+        var key = firebase.database().ref('transaction/').push().key;
+        firebase.database().ref('transaction/' + key).set({
+            transactionid : key,
             userid : userid,
             sellerid : sellerid,
+            email : email,
             firstname : firstname,
             lastname : lastname,
             phone : phone,
@@ -187,15 +190,18 @@ function completeOrder() {
                 cardcvv : cardCode
             }
         });
-        localStorage.setItem('cart', [{}]);
+        localStorage.setItem('cart', JSON.stringify([]));
         confirmationDiv.style.display = 'block';
         paymentDiv.style.display = 'none';
 
 
     } else if (view == 1) {
-        firebase.database().ref('transaction/').push().set({
+        var key = firebase.database().ref('transaction/').push().key;
+        firebase.database().ref('transaction/' + key).push().set({
+            transactionid : key,
             userid : userid,
             sellerid : sellerid,
+            email : email,
             firstname : firstname2,
             lastname : lastname2,
             phone : phone2,
@@ -211,7 +217,7 @@ function completeOrder() {
                 cardcvv : cardCode
             }
         });
-        localStorage.setItem('cart', [{}]);
+        localStorage.setItem('cart', JSON.stringify([]));
         confirmationDiv.style.display = 'block';
         paymentDiv.style.display = 'none';
     }
