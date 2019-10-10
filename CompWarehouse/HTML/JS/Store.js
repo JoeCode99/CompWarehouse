@@ -15,6 +15,8 @@ $(function(){
         store[i] = new Array(6);
     }
     
+
+    var storageRef = firebase.storage().ref();
     //populating the grid
     function makeGrid(store) {
         var list = document.getElementById("products");
@@ -36,6 +38,13 @@ $(function(){
                 //image creation
                 var image = document.createElement("img");
                 image.setAttribute("class", "productImage");
+                //(function() {
+                //    storageRef.child('images/' + store[j][0] + '.png').getDownloadURL().then(url => {
+                //        image.src = url;
+                //    }).catch(function(error) {
+                //       console.log(error);
+                //    });
+                //})(); 
                 var path = "../img/" + store[j][0] + ".png";
                 image.src = path;
                 item.appendChild(image);
@@ -106,7 +115,6 @@ $(function(){
         
     });
 
-    
     
 
 });

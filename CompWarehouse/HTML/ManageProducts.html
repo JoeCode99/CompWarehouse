@@ -8,6 +8,7 @@
   <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-storage.js"></script>
   <script src = "JS/FirebaseConfig.js"></script>
 </head>
 
@@ -60,17 +61,9 @@
         <input type="text" class="textfield" id="productStocktxt" placeholder="Product Stock"/><br></br>
         <input type="text" class="textfield" id="productCategorytxt" placeholder="Product Category"/><br></br>
         <input type="text" class="textfield" id="productDescriptiontxt" placeholder="Product Description"/><br></br>
-        <input type="submit" class="button" id="addProductBtn" value="Add Product" style='margin: 0px'/><br></br>
-    </div>
-
-    <div id="updateProductDiv" style='float: center'>
-      <h3> Edit Product </h3>
-      <input type="text" class="textfield" id="uProductNametxt" placeholder="Product Name"/><br></br>
-      <input type="text" class="textfield" id="uProductPricetxt" placeholder="New Product Price"/><br></br>
-      <input type="text" class="textfield" id="uProductStocktxt" placeholder="New Product Stock"/><br></br>
-      <input type="text" class="textfield" id="uProductCategorytxt" placeholder="New Product Category"/><br></br>
-      <input type="text" class="textfield" id="uProductDescriptiontxt" placeholder="New Product Description"/><br></br>
-      <input type="submit" class="button" id="updateProductBtn" value="Update Product" style='width: 150px; margin: 0px'/><br></br>
+        <progress value ="0" max="100" id="uploader" style="width: 300px">0%</progress><br>
+        <input type="file" value="upload" id="fileButton"/><br><br>
+        <input type="submit" class="button" id="addProductBtn" value="Add Product"/><br></br>
     </div>
 
     <div id="removeProductDiv" style='float: center'>

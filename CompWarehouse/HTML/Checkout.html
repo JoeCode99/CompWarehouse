@@ -7,6 +7,7 @@
   <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-storage.js"></script>
   <script src = "JS/FirebaseConfig.js"></script>
   
   </head>
@@ -111,9 +112,21 @@
 
     <div id='items'></div>
 
-  </div>
+<div id='paymentDiv' style='display: none; margin-left: 10px'>
+    <h2>Payment Details</h2>
+    <input type="text" class='textfield' id="cardNumberTxt" placeholder="Card number"/><br></br>
+    <input type="text" class='textfield' id="cardNameTxt" placeholder="Name on card"/><br></br>
+    <input type="text" class='textfield' id="cardDateTxt" placeholder="Expiry (MM/YY)" style='width: 145px'/> &nbsp;
+    <input type="text" class='textfield' id="cardCodeTxt" placeholder="Security code" style='width: 144px'/><br>
+    <h2>Billing Address</h2>
+    <input type="text" class='textfield' id="billingTxt" placeholder="Billing Address"/><br><br>
+    <button class = 'button' onclick='backBtn()' style='margin-left: 0px'>Back</button>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <button class = 'button2' onclick='completeOrder()' style='margin-left: 0px'><span>Order</span></button>
 
-  <script src="JS/Checkout.js"></script>
+</div>
+  
+<script src="JS/Checkout.js"></script>
 
 </body>
 </html>
