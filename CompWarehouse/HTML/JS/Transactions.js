@@ -66,7 +66,7 @@ function displayTransactions() {
             data += "<td>" + items[i].items.length; + "</td>";
             data += "<td>" + items[i].collection + "</td>";
             data += "<td>" + store + "</td>";
-            data += "<td style='border-bottom: 0px'><button onclick='viewElement(" + i + ")'>View</button></td>";
+            data += "<td style='border-bottom: 0px'><button class='button4' color: white' onclick='viewElement(" + i + ")'>View</button></td>";
         }
         data += "</tr></table>";
         transactions.innerHTML = data;

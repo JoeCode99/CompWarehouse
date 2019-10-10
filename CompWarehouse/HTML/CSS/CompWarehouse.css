@@ -429,3 +429,20 @@ tr:hover {
   margin-bottom: 30px;
 }
 
+.button4 {
+  background-color: #008CBA;
+  font-size: 14px;
+  width: 50px;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s
+}
+.button4:hover {
+  background-color: white;
+  color: #008CBA;
+}
+
