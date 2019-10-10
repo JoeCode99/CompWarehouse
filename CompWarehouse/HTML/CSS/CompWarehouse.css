@@ -46,11 +46,12 @@
 .navbar-right {
   float: right;
   color: gray;
+  font-family: sans-serif;
 }
 
-.navbar a:hover{
+/*.navbar a:hover{
   background-color: #ccddff;
-}
+}*/
 
 mySlides {
   display: none;
@@ -113,6 +114,25 @@ h2 {
   color: #070ed0;
 }
 
+#Home:hover{
+  background-color: Red;
+}
+
+#Product:hover{
+  background-color: Orange;
+}
+#Account:hover{
+  background-color: Yellow;
+}
+#Manage:hover{
+  background-color: Green;
+}
+#Store:hover{
+  background-color: blue;
+}
+#Contact:hover{
+  background-color: Purple;
+}
 /* Dropdown container - needed to position the dropdown content */
 .dropdown {
   float: left;
@@ -286,8 +306,8 @@ tr:hover {
   display: inline-block;
   position: relative;
   transition: 0.5s;
-  
-  
+
+
 }
 
 .button2 span:after {
@@ -298,7 +318,7 @@ tr:hover {
   right: -20px;
   transition: 0.5s;
   color: #008CBA;
-  
+
 }
 
 .button2:hover span {
