@@ -197,7 +197,7 @@ function completeOrder() {
 
     } else if (view == 1) {
         var key = firebase.database().ref('transaction/').push().key;
-        firebase.database().ref('transaction/' + key).push().set({
+        firebase.database().ref('transaction/' + key).set({
             transactionid : key,
             userid : userid,
             sellerid : sellerid,
