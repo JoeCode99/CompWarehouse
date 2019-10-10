@@ -14,44 +14,45 @@
 
   <body>
 
-  <div class="topnav">
+    <div class="topnav">
 
-  <div class="Dropwdown">
-    <p style="display: inline; color: darkgray;">Store Select: </p>
-  <select name="Store Select">
-    <option value="Store 1">Broadway</option>
-    <option value="Store 2">Chatswood</option>
-    <option value="Store 3">Parramatta</option>
-  </select>
-  </div>
-
-  <div class="topnav-right" style="float:right;">
-    <a  href="LogIn.html"><button class="Account">Log In/Sign up</button></a>
-    <a  href="Cart.html"><button class = "cart"><img src="../img/cart_icon.png" atl="cart_icon" width="30" height="20"></button></a>
-  <input type="text" placeholder="Search...">
-  </div>
-
-  </div>
-
-  <div class="navbar">
-    <a class="active" href="CompWarehouse.html"><img src="../img/Compwarehouse_logo.png" alt="CompWarehouse" width = "165" height = "50"></a>
-
-    <div class="navbar-right" style="float:right;">
-      <a href="CompWarehouse.html" style="color: gray;">Home</a>
-      <!-- <div class="dropdown">
-        <button class="dropbtn"><a href="Products.html" style="color: gray;">Products</a></button>
-        <div class="dropdown-content">
-          <a href="Gaming.html">Gaming</a>
-          <a href="Basic.html">Home & Office</a>
-        </div>
-      </div> -->
-      <a href="Store.html" style="color: gray">Store</a>
-      <a href="MyAccount.html" style="color: gray;">MyAccount</a>
-      <a href="ManageProducts.html" style="color: gray">Manage Products</a>
-      <a href="Transactions.html" style="color: gray">Transactions</a>
-      <a href="ContactUs.html" style="color: gray;">Contact Us</a>
+      <div class="Dropwdown">
+        <p style="margin: 10px; float: left;">Store Select: </p>
+      <select name="Store Select" class='dropmenu' style='margin: 10px; float: left; height: 24px; width: 110px;'>
+        <option value="Store 1">Broadway</option>
+        <option value="Store 2">Chatswood</option>
+        <option value="Store 3">Parramatta</option>
+      </select>
     </div>
-  </div>
+    
+    <div class="topnav-right" style="float:right;">
+      <a  href="LogIn.html" style="margin: 10px;"><button class="Account">Log In/Sign up</button></a>
+      <a  href="Cart.html" style="margin: 10px;"><button class = "cart"><img src="../img/cart_icon.png" atl="cart_icon" width="30" height="20"></button></a>
+      <input type="text" class="textfield" placeholder="Search..." style="margin: 10px; width: 200px; height: 20px">
+    </div>
+    
+    </div>
+    
+    <div class="navbar">
+        <a class="active" href="CompWarehouse.html"><img src="../img/Compwarehouse_logo.png" alt="CompWarehouse" width = "165" height = "50"></a>
+    
+        <div class="navbar-right" style="float:right;">
+          <a href="CompWarehouse.html" style='border-bottom: 2px solid;'>Home</a>
+          <!-- <div class="dropdown">
+            <button class="dropbtn"><a href="Products.html" style="color: gray;">Products</a></button>
+            <div class="dropdown-content">
+              <a href="Gaming.html">Gaming</a>
+              <a href="Basic.html">Home & Office</a>
+            </div>
+          </div> -->
+          <a href="Store.html" style='border-bottom: 2px solid;'>Store</a>
+          <a href="MyAccount.html" style='border-bottom: 2px solid;'>MyAccount</a>
+          <a href="ManageProducts.html" style='border-bottom: 2px solid;'>Manage Products</a>
+          <a href="Transactions.html" style='border-bottom: 2px solid;'>Transactions</a>
+          <a href="ContactUs.html" style='border-bottom: 2px solid;'>Contact Us</a>
+        </div>
+    
+    </div>
 
   <div class="management">
     <div id="addProductDiv" style='float: center'>
@@ -61,9 +62,17 @@
         <input type="text" class="textfield" id="productStocktxt" placeholder="Product Stock"/><br></br>
         <input type="text" class="textfield" id="productCategorytxt" placeholder="Product Category"/><br></br>
         <input type="text" class="textfield" id="productDescriptiontxt" placeholder="Product Description"/><br></br>
-        <progress value ="0" max="100" id="uploader" style="width: 300px">0%</progress><br>
-        <input type="file" value="upload" id="fileButton"/><br><br>
-        <input type="submit" class="button" id="addProductBtn" value="Add Product"/><br></br>
+        <input type="submit" class="button" id="addProductBtn" value="Add Product" style='margin: 0px'/><br></br>
+    </div>
+
+    <div id="updateProductDiv" style='float: center'>
+      <h3> Edit Product </h3>
+      <input type="text" class="textfield" id="uProductNametxt" placeholder="Product Name"/><br></br>
+      <input type="text" class="textfield" id="uProductPricetxt" placeholder="New Product Price"/><br></br>
+      <input type="text" class="textfield" id="uProductStocktxt" placeholder="New Product Stock"/><br></br>
+      <input type="text" class="textfield" id="uProductCategorytxt" placeholder="New Product Category"/><br></br>
+      <input type="text" class="textfield" id="uProductDescriptiontxt" placeholder="New Product Description"/><br></br>
+      <input type="submit" class="button" id="updateProductBtn" value="Update Product" style='width: 150px; margin: 0px'/><br></br>
     </div>
 
     <div id="removeProductDiv" style='float: center'>

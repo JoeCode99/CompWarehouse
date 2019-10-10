@@ -1,8 +1,8 @@
 .topnav {
-  background-color: #557A95;
-  overflow: hidden;
+  background-color: #008CBA;
   position: relative;
-
+  overflow: hidden;
+  height: 5%;
 }
 
 .topnav-right{
@@ -20,38 +20,49 @@
 }
 
 .Account {
-    border-radius: 16px;
+  font-size: 13px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .cart {
-  border-radius: 16px;
+  border-radius: 10px;
+  background-color: white;
+  text-align: center;
+  vertical-align: text-top;
 }
 
 .navbar {
   padding-top: 12px 16px;
   overflow: hidden;
   background-color: #5d5c61;
+  color: white;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 
 .navbar a {
   float: left;
-  color: #000000;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
   font-size: 14px
 }
 
 .navbar-right {
   float: right;
-  color: gray;
+  color: white;
   font-family: sans-serif;
 }
 
-/*.navbar a:hover{
-  background-color: #ccddff;
-}*/
+.navbar a:hover{
+  background-color: white;
+  color: #008CBA;
+}
 
 mySlides {
   display: none;
@@ -73,7 +84,7 @@ mySlides {
 }
 
 .Featured {
-  background-color: #7395AE;
+  background-color: #008CBA;
   float: left;
 }
 
@@ -92,26 +103,31 @@ body {
 
 h1 {
   text-decoration: bold;
-  color: gray;
+  color: white;
   margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h2 {
   text-decoration: bold;
-  color: gray;
+  color: white;
   margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+h3 {
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 p{
   color:white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
   text-decoration: none;
-}
-
-h2 {
-  text-decoration: none;
-  color: #070ed0;
+  vertical-align: middle;
 }
 
 #Home:hover{
@@ -220,14 +236,17 @@ h2 {
 
 .priceTxt {
   color: white;
+  text-indent: 10px;
 }
 
 .stockTxt {
   color: white;
+  text-indent: 10px;
 }
 
 .catTxt {
   color: white;
+  text-indent: 10px;
 }
 
 .productImage {
@@ -248,15 +267,18 @@ th, td {
   border-bottom: 1px solid;
   text-align: center;
   padding: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 tr:hover {
   background-color: rgb(104, 104, 104);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .table {
   color: white;
   border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Hover Fade Buttons */
@@ -404,5 +426,6 @@ tr:hover {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 200px;
   text-align: left;
+  margin-bottom: 30px;
 }
 

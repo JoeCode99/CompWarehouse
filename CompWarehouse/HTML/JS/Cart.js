@@ -37,6 +37,10 @@ function clearCart() {
     displayCart();
 }
 
+function viewShop() {
+    window.location.href = "Store.html";
+}
+
 function checkout() {
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
