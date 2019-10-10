@@ -17,42 +17,36 @@ $(function(){
     quantityDbx.style.display = "none";
     quantityTxt.style.display = "none";
     cartBtn.style.display = "none";
-    var storageRef = firebase.storage().ref();
+
     // Get and set product name from storage
     var productName = localStorage.getItem("productName");
     nameTxt.innerText = productName;
     var productPrice = 0;
-    
-    var image = document.getElementById("ProductPic");
-    storageRef.child('images/' + productName + '.png').getDownloadURL().then(url => {
-        image.src = url;
-        }).catch(function(error) {
-            console.log(error);
-        });
+
     var priceRef = firebase.database().ref('product/' + productName + '/productPrice');
     priceRef.on('value', function(snapshot) {
         var price = snapshot.val();
         productPrice = price;
-        priceTxt.innerText = "Price: $" + price;
+        priceTxt.innerHTML = "<strong>Price: </strong>$" + price;
     });
 
     var categoryRef = firebase.database().ref('product/' + productName + '/productCategory');
     categoryRef.on('value', function(snapshot) {
         var category = snapshot.val();
-        categoryTxt.innerText = "Category: " + category;
+        categoryTxt.innerHTML = "<strong>Category: </strong>" + category;
     });
 
     var descriptionRef = firebase.database().ref('product/' + productName + '/productDescription');
     descriptionRef.on('value', function(snapshot) {
         var description = snapshot.val();
-        descriptionTxt.innerText = "Description: " + description;
+        descriptionTxt.innerHTML = "<strong>Description: </strong>" + description;
     });
 
     var stockRef = firebase.database().ref('product/' + productName + '/productStock');
     stockRef.on('value', function(snapshot) {
         var stock = snapshot.val();
         image.src = "../img/" + productName + ".png";
-        stockTxt.innerText = "Stock Available: " + stock;
+        stockTxt.innerHTML = "<strong>Stock Available: </strong>" + stock;
         document.getElementById("placeholder").style.display = "none";
         nameTxt.style.display = "block";
         priceTxt.style.display = "block";
