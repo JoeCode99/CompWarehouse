@@ -38,12 +38,13 @@ $(function(){
                 //image creation
                 var image = document.createElement("img");
                 image.setAttribute("class", "productImage");
-                //storageRef.child('images/' + store[j][0] + '.png').getDownloadURL().then(function(url) {
-                //        var test = url;
+                //(function() {
+                //    storageRef.child('images/' + store[j][0] + '.png').getDownloadURL().then(url => {
                 //        image.src = url;
-                //   }).catch(function(error) {
-                        // Handle any errors
+                //    }).catch(function(error) {
+                //       console.log(error);
                 //    });
+                //})(); 
                 var path = "../img/" + store[j][0] + ".png";
                 image.src = path;
                 item.appendChild(image);
@@ -114,7 +115,6 @@ $(function(){
         
     });
 
-    
     
 
 });
