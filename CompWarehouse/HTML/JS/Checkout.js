@@ -162,7 +162,7 @@ function completeOrder() {
     else if (storeDbx.value == 2) var location = 'Chatswood';
     else if (storeDbx.value == 3) var location = 'Parramatta';
 
-    if (cardNumber.length == 0) window.alert("Please enter your card number");
+    if (cardNumber.length != 16) window.alert("Please a valid card number");
     else if (cardName.length == 0) window.alert("Please enter the name on your card");
     else if (cardDate.length == 0) window.alert("Please enter your card expiry date (MM/YY)");
     else if (!cardDate.length > 5) window.alert("Please enter your card expiry date in the format (MM/YY)");

@@ -1,5 +1,27 @@
 const heading = document.getElementById('heading');
 const transactions = document.getElementById('transactions');
+const view1 = document.getElementById('view1');
+const view2 = document.getElementById('view2');
+const useridTxt = document.getElementById('useridTxt');
+const useridTxt2 = document.getElementById('useridTxt2');
+const transactionidTxt = document.getElementById('transactionidTxt');
+const transactionidTxt2 = document.getElementById('transactionidTxt2');
+const nameTxt = document.getElementById('nameTxt');
+const nameTxt2 = document.getElementById('nameTxt2');
+const emailTxt = document.getElementById('emailTxt');
+const emailTxt2 = document.getElementById('emailTxt2');
+const phoneTxt = document.getElementById('phoneTxt');
+const phoneTxt2 = document.getElementById('phoneTxt2');
+const storeTxt = document.getElementById('storeTxt');
+const storeTxt2 = document.getElementById('storeTxt2');
+const addressTxt = document.getElementById('addressTxt');
+const billingTxt = document.getElementById('billingTxt');
+const billingTxt2 = document.getElementById('billingTxt2');
+const cardTxt = document.getElementById('cardTxt');
+const cardTxt2 = document.getElementById('cardTxt2');
+const pickupTxt = document.getElementById('pickupTxt');
+
+
 var items = [];
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -22,8 +44,8 @@ displayTransactions();
 
 function displayTransactions() {
     var dataRef = firebase.database().ref('transaction');
-    dataRef.on('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
+    dataRef.on('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
             items.push(childSnapshot.val());
         });
         console.log(items);
@@ -34,7 +56,7 @@ function displayTransactions() {
             if (items[i].sellerid == '4HbaT58rqANXjhhrKsBW1F7Zlhm1') var store = 'Broadway';
             else if (items[i].sellerid == '0u9RCtkvEsV041hA05xoypi9vX13') var store = 'Chatswood';
             else if (items[i].sellerid == 'Q0llPZ7bAQPM72hL7Bpv95toxzo2') var store = 'Parramatta';
-            
+
 
             data += "<tr><td>" + items[i].transactionid + "</td>";
             data += "<td>" + items[i].userid + "</td>";
@@ -48,9 +70,56 @@ function displayTransactions() {
         }
         data += "</tr></table>";
         transactions.innerHTML = data;
-    });   
+    });
 }
 
-function viewElement(i) {
-    
+function viewElement(a) {
+    if (items[a].sellerid == '4HbaT58rqANXjhhrKsBW1F7Zlhm1') var store = 'Broadway';
+    else if (items[a].sellerid == '0u9RCtkvEsV041hA05xoypi9vX13') var store = 'Chatswood';
+    else if (items[a].sellerid == 'Q0llPZ7bAQPM72hL7Bpv95toxzo2') var store = 'Parramatta';
+
+    if (items[a].collection == 'Delivery') {
+        transactionidTxt.innerText = "Transaction ID: " + items[a].transactionid;
+        useridTxt.innerText = "User ID: " + items[a].userid;
+        nameTxt.innerText = "Name: " + items[a].firstname + " " + items[a].lastname;
+        emailTxt.innerText = "Email: " + items[a].email;
+        phoneTxt.innerText = "Phone Number: " + items[a].phone;
+        storeTxt.innerText = "Store: " + store;
+        addressTxt.innerText = "Delivery Address: " + items[a].address;
+        billingTxt.innerText = "Billing Address: " + items[a].billing;
+        cardTxt.innerText = "Credit Card Number: **** **** **** " + items[a].payment.cardnumber.slice(12, 16);
+        view1.style.display = 'grid';
+        transactions.style.display = 'none';
+    } else if (items[a].collection == 'Pick-Up') {
+        transactionidTxt2.innerText = "Transaction ID: " + items[a].transactionid;
+        useridTxt2.innerText = "User ID: " + items[a].userid;
+        nameTxt2.innerText = "Name: " + items[a].firstname + " " + items[a].lastname;
+        emailTxt2.innerText = "Email: " + items[a].email;
+        phoneTxt2.innerText = "Phone Number: " + items[a].phone;
+        storeTxt2.innerText = "Store (Purchase): " + store;
+        pickupTxt.innerText = "Store (Pick-Up): " + items[a].location; 
+        billingTxt2.innerText = "Billing Address: " + items[a].billing;
+        cardTxt2.innerText = "Credit Card Number: **** **** **** " + items[a].payment.cardnumber.slice(12, 16);
+        view2.style.display = 'grid';
+        transactions.style.display = 'none';
+    }
+
+    var cartdata = '<table class="table" style="margin-left: 10px"><tr><th>Item Name</th><th>Quantity</th><th>Unit Price</th><th>Total</th></tr>';
+    var cart = items[a].items;
+    for (var i = 0; i < cart.length; i++) {
+        cartdata += "<tr><td>" + cart[i].name + "</td>";
+        cartdata += "<td>" + cart[i].quantity + "</td>";
+        cartdata += "<td>$" + cart[i].price + ".00</td>";
+        cartdata += "<td>$" + cart[i].quantity * cart[i].price + ".00</td>";
+    }
+    cartdata += '<tr><td></td><td></td><td></td><td>$' + items[a].totalprice + '.00</td></tr></table>';
+
+    document.getElementById('cart').innerHTML = cartdata;
+    document.getElementById('cart2').innerHTML = cartdata;
+}
+
+function backBtn() {
+    view1.style.display = 'none';
+    view2.style.display = 'none';
+    transactions.style.display = 'block';
 }

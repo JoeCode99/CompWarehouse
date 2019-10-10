@@ -54,7 +54,46 @@
 
   <h1 id='heading'>Transactions</h1>
 
-  <div id='transactions'></div> <br> <br>
+  <div id='transactions' style='margin-left: 20px'></div>
+
+  <div id='view1' class='management' style='grid-template-columns: 1fr 1fr; display: none'>
+    <div>
+        <p id='transactionidTxt'>Transaction ID:</p>
+        <p id='useridTxt'>User ID:</p>
+        <p id='nameTxt'>Name:</p>
+        <p id='emailTxt'>Email:</p>
+        <p id='phoneTxt'>Phone Number:</p>
+        <p>Collection Type: Delivery</p>
+        <p id='storeTxt'>Store:</p>
+        <p id='addressTxt'>Delivery Address:</p>
+        <p id='billingTxt'>Billing Address:</p>
+        <p>Payment Method: Credit Card</p>
+        <p id='cardTxt'>Card Number:</p> <br>
+        <button class='button' style='margin-left: 0px' onclick="backBtn()">Back</button>
+    </div>
+
+    <div id='cart'>
+
+    </div>
+  </div>
+
+  <div id='view2' class='management' style='grid-template-columns: 1fr 1fr; display: none'>
+    <div>
+        <p id='transactionidTxt2'>Transaction ID:</p>
+        <p id='useridTxt2'>User ID:</p>
+        <p id='nameTxt2'>Name:</p>
+        <p id='emailTxt2'>Email:</p>
+        <p id='phoneTxt2'>Phone Number:</p>
+        <p>Collection Type: Pick-Up</p>
+        <p id='storeTxt2'>Store (Purchase):</p>
+        <p id='pickupTxt'>Store (Pick-Up):</p>
+        <p id='billingTxt2'>Billing Address:</p>
+        <p>Payment Method: Credit Card</p>
+        <p id='cardTxt2'>Card Number:</p> <br> <br>
+        <button class='button' style='margin-left: 0px' onclick="backBtn()">Back</button>
+    </div>
+    <div id='cart2'></div>
+  </div>
   
 <script src="JS/Transactions.js"></script>
 </body>
