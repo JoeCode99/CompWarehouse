@@ -89,7 +89,6 @@ $(function(){
         return list;
     }
     
-    var imageURLs = new Array(100)
     var productsRef = firebase.database().ref('product');
     i = 0;
     //getting data from the database
