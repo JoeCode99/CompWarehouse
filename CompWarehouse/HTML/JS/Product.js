@@ -45,6 +45,10 @@ $(function(){
         var userid = firebase.auth().currentUser.uid;
         if (productName.length == 0 || productPrice.length == 0 || productCategory.length == 0 || productDescription.length == 0 || productStock.length == 0) {
             window.alert("Please enter information within all provided fields");
+        } else if (isNaN(Number(productPrice))) {
+            window.alert("Please enter a valid price");
+        } else if (isNaN(Number(productStock))) {
+            window.alert("Please enter a valid quantity");
         } else if (success == 0) {
             window.alert("Please provide an image for the product");
         } else {
@@ -84,9 +88,13 @@ $(function(){
         var uProductStock = document.getElementById("uProductStocktxt").value;
         var uProductCategory = document.getElementById("uProductCategorytxt").value;
         var uProductDescription = document.getElementById("uProductDescriptiontxt").value;
-        if (uProductName.length == 0 || uProductPrice.length == 0 || uProductStock.length == 0 || uProductCategory.length == 0 || uProductDescription.length == 0) 
+        if (uProductName.length == 0 || uProductPrice.length == 0 || uProductStock.length == 0 || uProductCategory.length == 0 || uProductDescription.length == 0) { 
             window.alert("Please enter updated product details within all provided fields");
-        else {
+        } else if (isNaN(Number(uProductPrice))) {
+            window.alert("Please enter a valid price");
+        } else if (isNaN(Number(uProductStock))) {
+            window.alert("Please enter a valid quantity");
+        } else {
             firebase.database().ref('product/' + uProductName).update({
                 productName : uProductName,
                 productPrice : uProductPrice,
