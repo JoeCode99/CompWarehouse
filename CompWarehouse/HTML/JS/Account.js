@@ -23,7 +23,7 @@
 
             // Get user id and email
             var userid = firebase.auth().currentUser.uid;
-            emailTxt.innerText = "Email: " + firebase.auth().currentUser.email;
+            emailTxt.innerHTML = "<strong>Email: </strong>" + firebase.auth().currentUser.email;
 
             // Listener for first and last names
             var firstNameRef = firebase.database().ref('user/' + userid + '/firstname');
@@ -33,7 +33,7 @@
                 var lastNameRef = firebase.database().ref('user/' + userid + '/lastname');
                 lastNameRef.on('value', function(snapshot) {
                 var lastname = snapshot.val();
-                nameTxt.innerText = "Name: " + firstname + " " + lastname;
+                nameTxt.innerHTML = "<strong>Name: </strong>" + firstname + " " + lastname;
                 });
             });
 
@@ -41,7 +41,7 @@
             var addressRef = firebase.database().ref('user/' + userid + '/address');
             addressRef.on('value', function(snapshot) {
                 var address = snapshot.val();
-                addressTxt.innerText = "Address: " + address;
+                addressTxt.innerHTML = "<strong>Address: </strong>" + address;
             });
         } else {
             window.location.replace("Login.html");

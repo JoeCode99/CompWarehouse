@@ -10,20 +10,38 @@ const firstNameTxt2 = document.getElementById('firstNameTxt2');
 const lastNameTxt2 = document.getElementById('lastNameTxt2');
 const phoneTxt2 = document.getElementById('phoneTxt2');
 var view = 0;
-const cardNumberTxt = document.getElementById('cardNumberText');
+const cardNumberTxt = document.getElementById('cardNumberTxt');
 const cardNameTxt = document.getElementById('cardNameTxt');
 const cardDateTxt = document.getElementById('cardDateTxt');
 const cardCodeTxt = document.getElementById('cardCodeTxt');
 const billingTxt = document.getElementById('billingTxt');
+const sellerDbx = document.getElementById('sellerDbx');
+const contactDiv = document.getElementById('contactDiv');
+const paymentDiv = document.getElementById('paymentDiv');
+const confirmationDiv = document.getElementById('confirmationDiv');
+
+var email = '';
+var firstname = '';
+var lastname = '';
+var address = '';
+var phone = '';
+
+var firstname2 = '';
+var lastname2 = '';
+var phone2 = '';
+var store = '';
+var cart = [];
+var total = 0;
+var sellerid = '4HbaT58rqANXjhhrKsBW1F7Zlhm1'
 
 displayItems();
 
 function displayItems() {
     var data = '<table class="table" style="margin-left: 10px"><tr><th>Item Name</th><th>Quantity</th><th>Unit Price</th><th>Total</th></tr>';
     
-    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
     console.log(cart);
-    var total = 0;
+    total = 0;
 
     for (var i = 0; i < cart.length; i++) {
         total += cart[i].quantity * cart[i].price;
@@ -84,16 +102,16 @@ function editCart() {
 }
 
 function viewPayment() {
-    var email = emailTxt.value.trim();
-    var firstname = firstNameTxt.value.trim();
-    var lastname = lastNameTxt.value.trim();
-    var address = addressTxt.value.trim();
-    var phone = phoneTxt.value.trim();
+    email = emailTxt.value.trim();
+    firstname = firstNameTxt.value.trim();
+    lastname = lastNameTxt.value.trim();
+    address = addressTxt.value.trim();
+    phone = phoneTxt.value.trim();
 
-    var firstname2 = firstNameTxt2.value.trim();
-    var lastname2 = lastNameTxt2.value.trim();
-    var phone2 = phoneTxt2.value.trim();
-    var store = storeDbx.value;
+    firstname2 = firstNameTxt2.value.trim();
+    lastname2 = lastNameTxt2.value.trim();
+    phone2 = phoneTxt2.value.trim();
+    store = storeDbx.value;
 
     if (view == 0) {
         if (email.length == 0) window.alert("Please enter your email address");
@@ -130,23 +148,84 @@ function backBtn() {
 }
 
 function completeOrder() {
-    var cardNumber = cardNumberTxt.value.trim();
+    var cardNumber = cardNumberTxt.value.trim() || '';
     var cardName = cardNameTxt.value.trim();
     var cardDate = cardDateTxt.value.trim();
     var cardCode = cardCodeTxt.value.trim();
-    var billing = billingtxt.value.trim();
+    var billing = billingTxt.value.trim();
+    var userid = firebase.auth().currentUser.uid;
 
-    if (cardNumber.length == 0) window.alert("Please enter your card number");
+    if (sellerDbx.value == 1) sellerid = '4HbaT58rqANXjhhrKsBW1F7Zlhm1';
+    else if (sellerDbx.value == 2) sellerid = '0u9RCtkvEsV041hA05xoypi9vX13';
+    else if (sellerDbx.value == 3) sellerid = 'Q0llPZ7bAQPM72hL7Bpv95toxzo2';
+    
+    if (storeDbx.value == 1) var location = 'Broadway';
+    else if (storeDbx.value == 2) var location = 'Chatswood';
+    else if (storeDbx.value == 3) var location = 'Parramatta';
+
+    if (cardNumber.length != 16) window.alert("Please a valid card number");
     else if (cardName.length == 0) window.alert("Please enter the name on your card");
     else if (cardDate.length == 0) window.alert("Please enter your card expiry date (MM/YY)");
-    else if (cardDate.length > 5) window.alert("Please enter your card expiry date in the format (MM/YY)");
-    else if (cardDate.contains("/")) window.alert("Please enter your card expiry date in the format (MM/YY)");
+    else if (!cardDate.length > 5) window.alert("Please enter your card expiry date in the format (MM/YY)");
     else if (cardCode.length == 0) window.alert("Please enter your card security code");
-    else {
-        
+    else if (view == 0){
+        var key = firebase.database().ref('transaction/').push().key;
+        firebase.database().ref('transaction/' + key).set({
+            transactionid : key,
+            userid : userid,
+            sellerid : sellerid,
+            email : email,
+            firstname : firstname,
+            lastname : lastname,
+            phone : phone,
+            address : address,
+            billing : billing || address,
+            company : companyTxt.value || 'none',
+            collection : 'Delivery',
+            totalprice : total,
+            items : cart,
+            payment : {
+                cardnumber : cardNumber,
+                cardname : cardName,
+                cardexpiry : cardDate,
+                cardcvv : cardCode
+            }
+        });
+        localStorage.setItem('cart', JSON.stringify([]));
+        confirmationDiv.style.display = 'block';
+        paymentDiv.style.display = 'none';
+
+
+    } else if (view == 1) {
+        var key = firebase.database().ref('transaction/').push().key;
+        firebase.database().ref('transaction/' + key).set({
+            transactionid : key,
+            userid : userid,
+            sellerid : sellerid,
+            email : email,
+            firstname : firstname2,
+            lastname : lastname2,
+            phone : phone2,
+            billing : billing,
+            location : location,
+            collection : 'Pick-Up',
+            totalprice : total,
+            items : cart,
+            payment : {
+                cardnumber : cardNumber,
+                cardname : cardName,
+                cardexpiry : cardDate,
+                cardcvv : cardCode
+            }
+        });
+        localStorage.setItem('cart', JSON.stringify([]));
+        confirmationDiv.style.display = 'block';
+        paymentDiv.style.display = 'none';
     }
 }
 
-
-
-
+function homeBtn() {
+    confirmationDiv.style.display = 'none';
+    contactDiv.style.display = 'block';
+    window.location.href = "CompWarehouse.html";
+}
