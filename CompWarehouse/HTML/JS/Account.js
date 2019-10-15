@@ -2,9 +2,9 @@
 
     // Get elements
     const detailsDiv = document.getElementById("detailsDiv");
-    const nameTxt = document.getElementById("nameTxt");
-    const emailTxt = document.getElementById("emailTxt");
-    const addressTxt = document.getElementById("addressTxt");
+    const nameTxt3 = document.getElementById("nameTxt3");
+    const emailTxt3 = document.getElementById("emailTxt3");
+    const addressTxt3 = document.getElementById("addressTxt3");
     const editBtn = document.getElementById("editBtn");
 
     const editDiv = document.getElementById("editDiv");
@@ -23,7 +23,7 @@
 
             // Get user id and email
             var userid = firebase.auth().currentUser.uid;
-            emailTxt.innerHTML = "<strong>Email: </strong>" + firebase.auth().currentUser.email;
+            emailTxt3.innerHTML = "<strong>Email: </strong>" + firebase.auth().currentUser.email;
 
             // Listener for first and last names
             var firstNameRef = firebase.database().ref('user/' + userid + '/firstname');
@@ -33,7 +33,7 @@
                 var lastNameRef = firebase.database().ref('user/' + userid + '/lastname');
                 lastNameRef.on('value', function(snapshot) {
                 var lastname = snapshot.val();
-                nameTxt.innerHTML = "<strong>Name: </strong>" + firstname + " " + lastname;
+                nameTxt3.innerHTML = "<strong>Name: </strong>" + firstname + " " + lastname;
                 });
             });
 
@@ -41,7 +41,7 @@
             var addressRef = firebase.database().ref('user/' + userid + '/address');
             addressRef.on('value', function(snapshot) {
                 var address = snapshot.val();
-                addressTxt.innerHTML = "<strong>Address: </strong>" + address;
+                addressTxt3.innerHTML = "<strong>Address: </strong>" + address;
             });
         } else {
             window.location.replace("Login.html");

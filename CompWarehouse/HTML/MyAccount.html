@@ -55,9 +55,9 @@
   <h1> My Account </h1>
 
   <div id="detailsDiv" style='margin-left: 10px;'>
-    <p id="nameTxt"> Name: </p>
-    <p id="emailTxt"> Email: </p>
-    <p id="addressTxt"> Address: </p> <br>
+    <p id="nameTxt3"> Name: </p>
+    <p id="emailTxt3"> Email: </p>
+    <p id="addressTxt3"> Address: </p> <br>
     <input type="submit" class='button' value="Edit Details" id="editBtn" style='margin-left: 0px;'/>
   </div>
   <p id="placeholder" style='margin-left: 10px;'>Loading account details...</p>
@@ -68,11 +68,56 @@
     <input type="text" id="addressTxtf" class='textfield' placeholder="Address"/><br><br>
     <input type="submit" class='button' value="Done" id="doneBtn"/>
     <input type="submit" class='button' value="Cancel" id="cancelBtn"/>
+  </div> <br> <br>
+
+  <h1 id='heading'>My Transactions</h1>
+
+  <div id='transactions' style='margin-left: 20px'></div>
+
+  <div id='view1' class='management' style='grid-template-columns: 1fr 1fr; display: none; margin-left: 10px'>
+    <div>
+        <p id='transactionidTxt'>Transaction ID:</p>
+        <p id='useridTxt'>User ID:</p>
+        <p id='nameTxt'>Name:</p>
+        <p id='companyTxt'>Company:</p>
+        <p id='emailTxt'>Email:</p>
+        <p id='phoneTxt'>Phone Number:</p>
+        <p><strong>Collection Type:</strong> Delivery</p>
+        <p id='storeTxt'>Store:</p>
+        <p id='addressTxt'>Delivery Address:</p>
+        <p id='billingTxt'>Billing Address:</p>
+        <p><strong>Payment Method:</strong> Credit Card</p>
+        <p id='cardTxt'>Card Number:</p> <br>
+        <button class='button' style='margin-left: 0px' onclick="backBtn()">Back</button>
+    </div>
+
+    <div id='cart'>
+
+    </div>
+  </div>
+
+  <div id='view2' class='management' style='grid-template-columns: 1fr 1fr; display: none; margin-left: 10px'>
+    <div>
+        <p id='transactionidTxt2'>Transaction ID:</p>
+        <p id='useridTxt2'>User ID:</p>
+        <p id='nameTxt2'>Name:</p>
+        <p id='emailTxt2'>Email:</p>
+        <p id='phoneTxt2'>Phone Number:</p>
+        <p><strong>Collection Type:</strong> Pick-Up</p>
+        <p id='storeTxt2'>Store (Purchase):</p>
+        <p id='pickupTxt'>Store (Pick-Up):</p>
+        <p id='billingTxt2'>Billing Address:</p>
+        <p><strong>Payment Method:</strong> Credit Card</p>
+        <p id='cardTxt2'>Card Number:</p> <br> <br>
+        <button class='button' style='margin-left: 0px' onclick="backBtn()">Back</button>
+    </div>
+    <div id='cart2'></div>
   </div>
 
 
 
   <script src = "JS/Account.js"></script>
+  <script src = "JS/CustomerHistory.js"></script>
 
 </body>
 </html>

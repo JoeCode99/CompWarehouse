@@ -24,22 +24,6 @@ const companyTxt = document.getElementById('companyTxt');
 
 var items = [];
 
-firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-        console.log(firebaseUser);
-        var userid = firebase.auth().currentUser.uid;
-        if (userid == '4HbaT58rqANXjhhrKsBW1F7Zlhm1') {
-            heading.innerText = "Broadway Store Transactions";
-        } else if (userid == '0u9RCtkvEsV041hA05xoypi9vX13') {
-            heading.innerText = "Chatswood Store Transactions";
-        } else if (userid == 'Q0llPZ7bAQPM72hL7Bpv95toxzo2') {
-            heading.innerText = "Parramatta Store Transactions";
-        } else if (userid == 'UFBAYohIXaOZeqfzyCDR639r8mr1') {
-            heading.innerText == "All Store Transactions"
-        }
-    }
-});
-
 displayTransactions();
 
 function displayTransactions() {
@@ -50,28 +34,30 @@ function displayTransactions() {
         });
         console.log(items);
 
-        var data = '<table class="table"><tr><th>Transaction ID</th><th>User ID</th><th>Name</th><th>Email</th><th>Total Price</th><th>Items</th><th>Type</th><th>Store</th></tr>';
+        var data = '<table class="table"><tr><th>Name</th><th>Email</th><th>Total Price</th><th>Items</th><th>Type</th><th>Store</th></tr>';
+
+        var customerid = firebase.auth().currentUser.uid;
 
         for (var i = 0; i < items.length; i++) {
-            if (items[i].sellerid == '4HbaT58rqANXjhhrKsBW1F7Zlhm1') var store = 'Broadway';
-            else if (items[i].sellerid == '0u9RCtkvEsV041hA05xoypi9vX13') var store = 'Chatswood';
-            else if (items[i].sellerid == 'Q0llPZ7bAQPM72hL7Bpv95toxzo2') var store = 'Parramatta';
+            if (items[i].userid == customerid){
+                if (items[i].sellerid == '4HbaT58rqANXjhhrKsBW1F7Zlhm1') var store = 'Broadway';
+                else if (items[i].sellerid == '0u9RCtkvEsV041hA05xoypi9vX13') var store = 'Chatswood';
+                else if (items[i].sellerid == 'Q0llPZ7bAQPM72hL7Bpv95toxzo2') var store = 'Parramatta';
 
-            var totalitems = 0;
+                var totalitems = 0;
                 for (var j = 0; j < items[i].items.length; j++) {
                     var num = items[i].items[j].quantity;
                     totalitems += parseInt(num, 10);
                 }
 
-            data += "<tr><td>" + items[i].transactionid + "</td>";
-            data += "<td>" + items[i].userid + "</td>";
-            data += "<td>" + items[i].firstname + " " + items[i].lastname; + "</td>";
-            data += "<td>" + items[i].email + "</td>";
-            data += "<td>$" + items[i].totalprice + ".00</td>";
-            data += "<td>" + totalitems + "</td>";
-            data += "<td>" + items[i].collection + "</td>";
-            data += "<td>" + store + "</td>";
-            data += "<td style='border-bottom: 0px'><button class='button4' color: white' onclick='viewElement(" + i + ")'>View</button></td>";
+                data += "<tr><td>" + items[i].firstname + " " + items[i].lastname; + "</td>";
+                data += "<td>" + items[i].email + "</td>";
+                data += "<td>$" + items[i].totalprice + ".00</td>";
+                data += "<td>" + totalitems + "</td>";
+                data += "<td>" + items[i].collection + "</td>";
+                data += "<td>" + store + "</td>";
+                data += "<td style='border-bottom: 0px'><button class='button4' color: white' onclick='viewElement(" + i + ")'>View</button></td>";
+            }
         }
         data += "</tr></table>";
         transactions.innerHTML = data;
