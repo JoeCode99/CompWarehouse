@@ -2,8 +2,8 @@ const heading = document.getElementById('heading');
 const transactions = document.getElementById('transactions');
 const view1 = document.getElementById('view1');
 const view2 = document.getElementById('view2');
-const useridTxt = document.getElementById('useridTxt');
-const useridTxt2 = document.getElementById('useridTxt2');
+// const useridTxt = document.getElementById('useridTxt');
+// const useridTxt2 = document.getElementById('useridTxt2');
 const transactionidTxt = document.getElementById('transactionidTxt');
 const transactionidTxt2 = document.getElementById('transactionidTxt2');
 const nameTxt = document.getElementById('nameTxt');
@@ -71,7 +71,7 @@ function viewElement(a) {
 
     if (items[a].collection == 'Delivery') {
         transactionidTxt.innerHTML = "<strong>Transaction ID: </strong>" + items[a].transactionid;
-        useridTxt.innerHTML = "<strong>User ID: </strong>" + items[a].userid;
+        // useridTxt.innerHTML = "<strong>User ID: </strong>" + items[a].userid;
         nameTxt.innerHTML = "<strong>Name: </strong>" + items[a].firstname + " " + items[a].lastname;
         companyTxt.innerHTML = "<strong>Company: </strong>" + items[a].company;
         emailTxt.innerHTML = "<strong>Email: </strong>" + items[a].email;
@@ -84,7 +84,7 @@ function viewElement(a) {
         transactions.style.display = 'none';
     } else if (items[a].collection == 'Pick-Up') {
         transactionidTxt2.innerHTML = "<strong>Transaction ID: </strong>" + items[a].transactionid;
-        useridTxt2.innerHTML = "<strong>User ID: </strong>" + items[a].userid;
+        // useridTxt2.innerHTML = "<strong>User ID: </strong>" + items[a].userid;
         nameTxt2.innerHTML = "<strong>Name: </strong>" + items[a].firstname + " " + items[a].lastname;
         emailTxt2.innerHTML = "<strong>Email: </strong>" + items[a].email;
         phoneTxt2.innerHTML = "<strong>Phone Number: </strong>" + items[a].phone;
