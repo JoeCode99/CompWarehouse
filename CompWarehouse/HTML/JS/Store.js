@@ -1,4 +1,4 @@
-$(function(){
+
     //Get the elements - 6 elements per item
     //const productNametxt = document.getElementById("productNametxt");
     //const productPricetxt = document.getElementById("productPricetxt");
@@ -7,21 +7,24 @@ $(function(){
     //const productStocktxt = document.getElementById("productStocktxt");
     //const addProductBtn = document.getElementById("addProductBtn");
     //const editProductBtn = document.getElementById();
-    
+    var searchBox = document.getElementById("box");
+
     //creating the double array
     var i = 0;
     var store = new Array(100);
     for (i = 0; i < 100; i++) {
         store[i] = new Array(6);
     }
-    
-
+    function checker(name) {
+        if ((searchBox.value).length == 0) return true;
+        return (name.toLowerCase()).includes((searchBox.value).toLowerCase());
+    }
     var storageRef = firebase.storage().ref();
     //populating the grid
     function makeGrid(store) {
         var list = document.getElementById("products");
         for (var j = 0; j < store.length; j++) {
-            if (store[j][0].length != 0) {
+            if (store[j][0].length != 0 && checker(store[j][0])) {
                 var item = document.createElement("div");
                 identifier = "grid" + j.toString(10);
                 item.setAttribute("class", "store");
@@ -116,5 +119,7 @@ $(function(){
     });
 
     
-
-});
+function search() {
+    document.getElementById("products").innerHTML = "";
+    makeGrid(store);
+}
