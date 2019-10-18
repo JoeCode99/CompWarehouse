@@ -37,3 +37,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
 });
 
+function goToStore() {
+    window.location.href = "Store.html";
+}
+
